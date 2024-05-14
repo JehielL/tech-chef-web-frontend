@@ -1,0 +1,93 @@
+.navbar {
+    background-color: #ffffff;
+    height: 100px;
+    border-radius: 40px;
+    margin-top: 20px;
+    width: 80%;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.nav-item {
+    color: #000000 !important;
+    transition: all 0.5s;
+    font-weight: bold;
+    border-radius: 30px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.nav-item:hover {
+    background-color: #2D93AD;
+    
+}
+
+
+.nav-item .nav-link {
+    color: #000000 !important;
+    transition: all 0.5s;
+    font-weight: bold;
+}
+.nav-item:hover .nav-link {
+    color: #ffffff !important;
+    transition: all 0.5s;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px;
+    max-width: calc(100% - 100px); /* Limita el ancho del logo para evitar desbordamiento */
+}
+
+.navbar-toggler {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}
+
+@media (max-width: 991px) {
+    .navbar {
+        height: 100px; /* Altura automática para la versión responsive */
+        padding: 10px 20px; /* Ajuste de relleno para el contenido */
+        width: 100%;
+        border-radius: 0; 
+        margin-top: 0px;
+    }
+
+    .navbar-toggler {
+        top: 50%; /* Ajuste la posición del botón de hamburguesa */
+        transform: translateY(-50%);
+        z-index: 1; /* Asegura que el botón de hamburguesa esté sobre el contenido */
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Coloca el menú desplegable debajo del botón de hamburguesa */
+        right: 0; /* Alinea el menú desplegable a la derecha */
+        width: 50%;
+        background-color: #ffffff;
+        border-radius: 0 0 20px 20px; /* Ajusta los bordes del menú desplegable */
+        z-index: 0; /* Asegura que el menú desplegable esté detrás del botón de hamburguesa */
+    }
+    
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 10px; /* Espacio entre los elementos del menú */
+    }
+    
+}
+

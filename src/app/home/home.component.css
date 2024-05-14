@@ -1,0 +1,45 @@
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 20%; 
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position-y: -100px; 
+    margin-top: 10rem;
+   
+  }
+
+  .custom-img{
+    border-radius: 50%;
+  }
+  .custom-text {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-left: -9rem;
+    
+    background-color: #f7f7f7; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+
+  .picsum-img-wrapper img {
+    max-height: 700px; 
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: #ffffff; 
+    padding: 20px; 
+}
+
+.carousel-caption h3 {
+    font-size: 24px; 
+}
+
+.carousel-caption p {
+    font-size: 18px; 
+}

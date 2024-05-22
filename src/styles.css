@@ -53,3 +53,11 @@ h1 {
     transform:translateX(25%);
   }
 }
+
+.text-gradient {
+  background: linear-gradient(to right, #0095ff, #b659a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}

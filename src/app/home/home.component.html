@@ -1,50 +1,32 @@
-@if (images) {
-	<ngb-carousel>
-        <ng-template ngbSlide>
-            <div class="picsum-img-wrapper">
-                <img [src]="images[0]" alt="Random first slide" class="d-block w-100" /> <!-- Utiliza las clases de Bootstrap para que la imagen ocupe todo el ancho del carrusel -->
-                <div class="carousel-caption">
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template ngbSlide>
-            <div class="picsum-img-wrapper">
-                
-                <img [src]="images[1]" alt="Random second slide" class="d-block w-100" /> 
-                
-                <div class="carousel-caption">
-                    
-                    <h1 class="text-center custom-text p-4">Bienvenidos a Tech Chef</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template ngbSlide>
-            <div class="picsum-img-wrapper ">
-                <img [src]="images[2]" alt="Random third slide" class="d-block w-100 " /> <!-- Utiliza las clases de Bootstrap para que la imagen ocupe todo el ancho del carrusel -->
-                <div class="carousel-caption">
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
-            </div>
-        </ng-template>
-    </ngb-carousel>
-    
-}
-
 <div class="container">
-    <div class="parallax">
-        <div class="row">
+        <div class="row ">
             <div class="col">
-                <h1 class="text-center custom-text p-4">Bienvenidos a Tech Chef</h1>
-                <p class="text-center">Somos una empresa de tecnología que ofrece soluciones para restaurantes y
-                    franquicias</p>
+                <div class="custom-container container">
+                    <h1 class="custom-text">Soluciones hosteleras <span class="text-gradient"> disruptivas</span>.</h1>
+                    <p class="custom-content">Somos una startup con la misión de acercar la tecnología al sector
+                        hostelero.
+                        Ofrecemos herramientas web diseñadas para apoyar a pequeños y medianos empresarios, impulsando
+                        la
+                        microeconomía y facilitando la modernización de las pymes del sector.
+
+
+                    </p>
+
+                    <button class="btn custom-btn btn-outline-dark m-3 ">Conocenos</button>
+
+
+                </div>
+
             </div>
+
             <div class="col">
-                <img class="custom-img" src="https://i.ibb.co/T4gFDDt/guy1.jpg" alt="" style="max-width: 350px;">
+                <img class="custom-img " src="https://i.ibb.co/T4gFDDt/guy1.jpg" alt="">
+
+
+
             </div>
+
+
+
         </div>
-    </div>
 </div>

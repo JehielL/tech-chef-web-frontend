@@ -65,3 +65,163 @@ path{
 .border-primary {
   border: 1px solid #000000 !important;
 }
+
+/* General card styling */
+.card {
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  border: none;
+  border-bottom: 1px solid #0095ff;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Card body styling */
+.card-body {
+  background-color: #f7f7f7;
+  border-radius: 15px;
+  padding: 20px;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.card:hover .card-body {
+  background-color: #ffffff;
+}
+
+/* SVG icon */
+.card .bi-tablet, 
+.card .bi-textarea-resize, 
+.card .bi-repeat, 
+.card .bi-shield-check {
+  color: #0095ff; /* Primary color for the icon */
+}
+
+/* Title */
+.card h4 {
+  color: #030303; /* Dark color for the title */
+  transition: color 0.4s ease-in-out;
+}
+
+.card:hover h4 {
+  color: #b659a6; /* Color change on hover */
+}
+
+/* Text */
+.card p {
+  color: #6c757d; /* Secondary text color */
+}
+
+/* Link */
+a.link-primary {
+  color: #0095ff;
+  transition: color 0.4s ease-in-out;
+}
+
+a.link-primary:hover {
+  color: #b659a6;
+  text-decoration: none;
+}
+
+/* Card image container */
+.card-img {
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  perspective: 1000px; /* Add perspective for 3D effect */
+}
+
+/* Card image styling */
+.card-img .img {
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+/* Card image hover effect */
+.card-img:hover .img {
+  transform: translateY(-10px) rotateX(10deg) rotateY(10deg);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .card {
+    transform: scale(0.9);
+    width: 100%;
+    padding: 10px;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .card-img .img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card h4 {
+    font-size: 1.25rem; /* Adjust font size for smaller screens */
+  }
+
+  .card p {
+    font-size: 0.875rem; /* Adjust font size for smaller screens */
+  }
+
+  .card-btn {
+    height: 30px;
+    padding: 0 10px;
+  }
+
+  .card-price {
+    font-size: 1.125rem;
+  }
+
+  .card-price span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    transform: scale(0.8);
+    width: 80%;
+    padding: 5px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .card-img .img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .card h4 {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .card p {
+    font-size: 0.75rem; /* Adjust font size for smaller screens */
+  }
+
+  .card-btn {
+    height: 25px;
+    padding: 0 5px;
+  }
+
+  .card-price {
+    font-size: 1rem;
+  }
+
+  .card-price span {
+    font-size: 0.875rem;
+  }
+ 
+}

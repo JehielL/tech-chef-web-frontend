@@ -9,6 +9,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+    border: 2px solid #000000;
 }
 
 .nav-item {

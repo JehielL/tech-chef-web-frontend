@@ -1,8 +1,8 @@
 
 
 .custom-img {
-  max-width: 350px;
-  max-height: 350px;
+  max-width: 450px;
+  max-height: 450px;
   border-radius: 50%;
   margin-top: 200px;
   margin-left: calc(50% - 175px);
@@ -15,13 +15,13 @@
   font-weight: bold;
   overflow: hidden;
   border-radius: 10px;
-  margin-top: 200px;
+  margin-top: 170px;
   padding: 10px;
 }
 .custom-container{
   background-color: #f7f7f7;
   margin-bottom: 20px;
-  border-radius: 30px;
+  border-radius: 20px;
 
 }
 
@@ -37,7 +37,8 @@
   .custom-img {
     margin-top: -15px;
     border-radius: 20px;
-   
+   max-width: 350px;
+   max-width: 350px;
   }
 
 }
@@ -50,4 +51,17 @@
   padding: 10px;
   margin-top: 20px;
   margin-left: calc(58% - 100px) !important;
+}
+
+path{
+  font-size: 20px;
+  color: #030303;
+}
+.custom-card{
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  padding: 20px;
+}
+.border-primary {
+  border: 1px solid #000000 !important;
 }

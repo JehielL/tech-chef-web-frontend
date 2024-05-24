@@ -96,9 +96,28 @@ path{
   z-index: 0;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
 }
+.custom-card-app {
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  box-shadow: 0 10px 20px rgba(2, 238, 246, 0.318) !important;
+}
+.custom-card-app .card-img-top {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; 
+}
 
 /* Card hover effect */
 .custom-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+.custom-card-app:hover {
   transform: translateY(-15px) scale(1.05);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   z-index: 10;

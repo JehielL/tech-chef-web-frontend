@@ -193,7 +193,8 @@ a.link-primary:hover {
   .custom-img{
     margin-top: 50px !important;
     border-radius: 20px;
-    margin-left: 40px !important;
+    margin-left: 10% !important;
+    max-width: 300px !important;
   }
 
   .card-body {

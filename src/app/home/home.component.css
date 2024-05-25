@@ -232,6 +232,11 @@ a.link-primary:hover {
   .card-price span {
     font-size: 1rem;
   }
+  .custom-text{
+    font-size: 50px !important;
+    margin-top: 120px !important;
+  
+  }
 }
 
 

@@ -52,15 +52,6 @@
   margin-top: -30px;
   
 }
-@media (max-width: 576px) {
-  .custom-img {
-    margin-top: -15px;
-    border-radius: 20px;
-   max-width: 350px;
-   max-width: 350px;
-  }
-
-}
 
 .custom-btn{
   background-color: linear-gradient(to right, #0095ff, #b659a6);
@@ -242,44 +233,6 @@ a.link-primary:hover {
   }
 }
 
-@media (max-width: 480px) {
-  .custom-card {
-    transform: scale(0.8);
-    width: 80%;
-    padding: 5px;
-  }
-
-  .card-body {
-    padding: 10px;
-  }
-
-  .card-img .img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .custom-card h4 {
-    font-size: 1rem; /* Adjust font size for smaller screens */
-  }
-
-  .custom-card p {
-    font-size: 0.75rem; /* Adjust font size for smaller screens */
-  }
-
-  .card-btn {
-    height: 25px;
-    padding: 0 5px;
-  }
-
-  .card-price {
-    font-size: 1rem;
-  }
-
-  .card-price span {
-    font-size: 0.875rem;
-  }
- 
-}
 
 /* Slider */
 

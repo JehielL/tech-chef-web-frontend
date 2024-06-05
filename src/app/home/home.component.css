@@ -192,6 +192,14 @@ a.link-primary:hover {
     padding: 10px;
     margin-left: 10%;
   }
+
+  .team-item{
+
+    width: 70%;
+    margin-left: 15%;
+
+
+  }
   .custom-services{
     margin-top: 50px !important;
   }

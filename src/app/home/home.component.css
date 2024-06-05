@@ -128,6 +128,10 @@ path{
   background-color: #ffffff;
 }
 
+.custom-card:hover {
+  background-color: #ffffff;
+}
+
 /* SVG icon */
 .custom-card .bi-tablet, 
 .custom-card .bi-textarea-resize, 
@@ -184,8 +188,9 @@ a.link-primary:hover {
 @media (max-width: 768px) {
   .custom-card {
     transform: scale(0.9);
-    width: 100%;
+    width: 80%;
     padding: 10px;
+    margin-left: 10%;
   }
   .custom-services{
     margin-top: 50px !important;

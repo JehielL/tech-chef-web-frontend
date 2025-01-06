@@ -41,6 +41,12 @@
         margin-bottom: 30%;
       
       }
+
+      .customh1{
+
+        margin-left: 0px;
+        margin-top: 60px;
+      }
 }
   .custom-text{
 
@@ -55,6 +61,11 @@
         margin-left: 25%;
       
     }
+    .customh1{
+
+        margin-left: 0px;
+        margin-top: 60px;
+      }
 }
 
 .box-shadow {

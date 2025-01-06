@@ -1,0 +1,70 @@
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position-y: -100px; 
+    max-width: 130.5vw;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(51, 169, 161, 1) 12%, rgb(0, 0, 0) 26%, rgba(111, 190, 148, 1) 100%);
+    font-family: "Sharp Grotesk 25", sans-serif;
+    font-size: 6em;
+   
+  }
+  .customh1{
+
+    margin-left: 10px;
+  }
+
+  h1{
+    font-family: "Sharp Grotesk 25", sans-serif;
+    font-size: 1em;
+   
+  }
+  @media screen and (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll; 
+        min-height: 50vh; 
+        background-position-y: 0px;
+    }
+    .loader-container{
+        transform: translate(-50%, -50%);
+        width: 30px; 
+        height: 30px; 
+      
+        margin-left: 45% !important;
+        margin-top: 20%;
+        margin-bottom: 30%;
+      
+      }
+}
+  .custom-text{
+
+    font-weight: 450;
+  }
+
+  @media screen and (max-width: 600px) {
+    .bd-placeholder-img {
+        width: 50%; 
+        height: 70%;
+        border-radius: 50%;
+        margin-left: 25%;
+      
+    }
+}
+
+.box-shadow {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+.custom-bg{
+    background-color: #202030;
+}
+
+.custom-title{
+    color: #202030;
+}
+

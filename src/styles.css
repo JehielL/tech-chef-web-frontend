@@ -61,15 +61,13 @@ h1 {
   -webkit-text-fill-color: transparent;
   
 }
-
 .loader-container {
-  transform: translate(-50%, -50%);
-  width: 30px; 
-  height: 30px; 
-
-  margin-left: 48%;
-  margin-top: 20%;
-  margin-bottom: 30%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  min-height: 100vh; 
+  margin: 0; 
+  transform: translateX(-25px);
 }
 
 .loader {
@@ -169,15 +167,8 @@ h1 {
 @media screen and (max-width: 992px) {
 
 
-  .loader-container{
-    transform: translate(-50%, -50%);
-    width: 30px; 
-    height: 30px; 
-  
-    margin-left: 45% !important;
-    margin-top: 20%;
-    margin-bottom: 30%;
-  
+  .loader-container {
+    min-height: 100vh;
   }
   
 }

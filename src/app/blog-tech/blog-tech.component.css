@@ -18,6 +18,9 @@
   .customh1{
 
     margin-left: 10px;
+    font-family: "Sharp Grotesk 25", sans-serif;
+    font-weight: 400;
+
   }
 
   h1{
@@ -79,3 +82,40 @@
     color: #202030;
 }
 
+/* General */
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Hace la imagen redonda */
+  object-fit: cover; /* Asegura que la imagen se ajuste bien */
+  transition: transform 0.3s, box-shadow 0.3s; /* Efecto suave para hover */
+}
+
+.category-title {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+}
+
+/* Hover Effect */
+.category:hover .category-img {
+  transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra */
+}
+
+.category:hover .category-title {
+  color: #0095ff; /* Cambia el color del texto */
+  transition: transform 0.3s, box-shadow 0.3s; 
+}

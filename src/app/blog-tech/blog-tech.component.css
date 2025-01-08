@@ -40,16 +40,24 @@
         blink-caret 0.8s step-end infinite;
 }
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 12.5ch; } 
-}
-
-
 @keyframes blink-caret {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: mintcream; }
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: mintcream;
+  }
 }
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 12.5ch;
+  }
+}
+
 
 
 

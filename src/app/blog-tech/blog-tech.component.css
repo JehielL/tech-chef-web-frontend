@@ -155,15 +155,16 @@ h1 {
 }
 
 .category:hover .category-title {
-  color: #0095ff;
+  color: #ff5500; 
   transition: transform 0.3s, box-shadow 0.3s; 
+  text-decoration: double;
 }
 
 
 
 
 .category-link {
-  text-decoration: none; /* Quita el subrayado del enlace */
+  text-decoration: double;
 }
 
 .category-img {
@@ -192,5 +193,5 @@ h1 {
 }
 
 .category-link:hover .category-title {
-  color: #0095ff; /* Cambia el color del texto al pasar el mouse */
+  color: #ff5500; /* Cambia el color del texto al pasar el mouse */
 }

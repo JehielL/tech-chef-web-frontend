@@ -97,6 +97,8 @@ h1 {
   .title-era{
     margin-top: 100px !important;
   }
+
+  
 }
   .custom-text{
 
@@ -106,8 +108,7 @@ h1 {
   @media screen and (max-width: 600px) {
     .bd-placeholder-img {
         width: 50%; 
-        height: 70%;
-        border-radius: 50%;
+        height: 100%;
         margin-left: 25%;
       
     }

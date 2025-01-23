@@ -232,7 +232,7 @@
                 </div>
             </a>
             <a href="">
-                <div class="slide">
+                <div class="slide" style="margin-top: 50px !important;">
                     <img src="https://www.dip-badajoz.es/img/escudo_2016_ancho.svg" alt="">
 
                 </div>
@@ -511,37 +511,39 @@
 
         <div data-aos="fade-up" data-aos-duration="500" class="form-container">
             <div class="form">
-
-                <h3 class="titulo-seccion   p-2 text-center">Trabaja con nosotros</h3>
+                <h3 class="titulo-seccion p-2 text-center">Trabaja con nosotros</h3>
                 <div class="form-group">
-                    <form action="https://formsubmit.co/jehiel.py@gmail.com" method="POST">
-
+                    <form action="https://formsubmit.co/jehiel.py@gmail.com" method="POST" onsubmit="return validateForm()">
+        
                         <div class="labels">
-                            <input type="text" name="name" id="name" placeholder="Nombre Completo" class="input-mitad"
-                                required>
+                            <input type="text" name="name" id="name" placeholder="Nombre Completo" class="input-mitad" required>
                             <br>
-                            <input type="email" name="email" id="email" placeholder="Dirección de Email"
-                                class="input-mitad" required>
-
-
+                            <input type="email" name="email" id="email" placeholder="Dirección de Email" class="input-mitad" required>
+        
                             <input type="text" name="subject" id="subject" placeholder="Asunto..." class="input-full">
-
-
-                            <textarea name="message" id="message" cols="30" rows="10" placeholder="Tu Mensaje..."
-                                class="input-full" required></textarea>
+        
+                            <textarea name="message" id="message" cols="30" rows="10" placeholder="Tu Mensaje..." class="input-full" required></textarea>
                         </div>
+        
+                        <!-- Casilla de aceptación de términos -->
+                        <div class="terms-container text-center">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">
+                                Acepto los <a href="https://bitesoftware.es/terminos-y-condiciones" target="_blank">Términos y Condiciones</a>
+                            </label>
+                        </div>
+        
                         <div class="text-center">
                             <button type="submit" class="btn btn-outline-dark">Enviar Mensaje</button>
-
                         </div>
+        
                         <input type="hidden" name="_next" value="http://localhost:4200/">
                         <input type="hidden" name="_captcha" value="false">
                     </form>
-
                 </div>
-
             </div>
         </div>
+        
 
 
     </section>

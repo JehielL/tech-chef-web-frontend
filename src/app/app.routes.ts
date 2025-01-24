@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { BlogTechComponent } from './blog-tech/blog-tech.component';
 import { BlogEmprendimientoComponent } from './blog-emprendimiento/blog-emprendimiento.component';
 import { BlogDesarrolloComponent } from './blog-desarrollo/blog-desarrollo.component';
+import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
 
 export const routes: Routes = [
 
@@ -27,6 +28,10 @@ export const routes: Routes = [
     { 
         path: 'blog-tech/desarrollo',
         component: BlogDesarrolloComponent
+    },
+    {
+        path: 'politica-privacidad',
+        component: PoliticaPrivacidadComponent
     },
     
     {

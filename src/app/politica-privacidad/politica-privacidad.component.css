@@ -1,0 +1,55 @@
+.container {
+    max-width: 900px;
+    border-radius: 15px;
+    margin-top: 40px !important;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #000000;
+    font-weight: 700;
+}
+
+p {
+    text-align: justify;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.nav.flex-column {
+    padding-left: 0;
+}
+
+.toc-link {
+    display: block;
+    padding: 10px 15px;
+    color: #007bff;
+    font-weight: 500;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.toc-link:hover {
+    background-color: #e9ecef;
+    border-left: 3px solid #007bff;
+    text-decoration: none;
+}
+
+.card {
+    border-radius: 10px;
+    margin-top: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.432);
+    transition: all 0.3s;
+}
+
+.policy-section {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.policy-section:last-child {
+    border-bottom: none;
+}
+

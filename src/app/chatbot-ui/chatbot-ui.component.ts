@@ -217,7 +217,7 @@ export class ChatbotUiComponent implements OnInit, AfterViewChecked {
     let question = '';
     switch (this.currentStep) {
       case 0:
-        question = '¿Bienvenido, para atenderte de manera personalizada ¿Cuál es tu nombre?';
+        question = '¿Bienvenido a Bite Software, en que puedo ayudarte hoy?';
         break;
       case 1:
         question = '¿Podrías indicar tu número de teléfono?';

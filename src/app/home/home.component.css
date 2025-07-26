@@ -96,7 +96,7 @@ path{
   overflow: hidden;
   position: relative;
   z-index: 0;
-  box-shadow: 0 10px 20px rgba(2, 238, 246, 0.318) !important;
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.668) !important;
 }
 .custom-card-app .card-img-top {
   width: 100%;

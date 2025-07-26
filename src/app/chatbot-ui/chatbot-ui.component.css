@@ -1,0 +1,500 @@
+#chat-bot {
+    width: 350px;
+    height: 500px;
+    overflow: hidden;
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.718);
+    transition: all 0.4s ease;
+    z-index: 9999;
+    display: none;
+    margin-bottom: 30px;
+}
+
+.fa-minimize{
+    color: #000000;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.fa-minimize:hover {
+    color: #ffffff;
+    transform: scale(0.9);
+    transition: transform 0.5s ease, color 0.5s ease;
+    cursor: pointer;
+
+    
+}
+
+.fa-rotate {
+    color:#030303 ;
+    cursor: pointer;
+    margin-left: 90px;
+}
+
+.fa-rotate:hover {
+    color: #ebebeb;
+    transform: scale(0.9);
+    transition: transform 0.5s ease, color 0.5s ease;
+    cursor: pointer;
+
+}
+
+/* Estilos del chat personalizado */
+.card-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+/* Avatar en la tarjeta */
+.img-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    background-image: url("/assets/futurito.png");
+}
+
+/* Estilo del texto del chat */
+.text-chat {
+    color: black;
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor de chat */
+#chat-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+}
+
+/* Estilos para el área de entrada del mensaje */
+.message-input {
+    padding: 5px;
+    border-top: 1px solid #ea3103;
+    display: flex;
+    align-items: center;
+}
+
+/* Ajustar el input para que ocupe el espacio disponible */
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Estilo del botón de enviar */
+
+
+/* Cambia el tamaño del botón de envío al pasar el mouse */
+.message-input .button-send:hover {
+    background-color: #c65c32;
+    color: #ffffff;
+}
+
+/* Estilos de los mensajes */
+.message-box {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.user-message,
+.bot-message {
+    padding: 8px;
+    border-radius: 5px;
+}
+
+
+
+/* Estilos para el robot */
+#robot-icon {
+    width: auto;
+    height: 110px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10000;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(151, 151, 151, 0.8));
+}
+
+/* Efecto adicional para simular el seguimiento y aumentar el tamaño */
+#robot-icon:hover {
+    transform: translate(-10px, -10px) scale(1.1);
+}
+
+/* Efecto adicional para simular el seguimiento con un pseudo-elemento */
+#robot-icon:hover::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    top: -10px;
+    left: -10px;
+}
+#chat-container {
+    overflow-y: auto;
+    max-height: 400px; /* Ajusta la altura máxima a tus necesidades */
+    display: flex;
+  }
+  
+
+.card-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #530889;
+}
+
+.card-header .img-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    background-image: url("/assets/futurito.png");
+}
+
+.card-header .text-chat {
+    color: black;
+    margin: 0;
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card-body {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.messages-container {
+    padding: 15px;
+}
+
+.message-box {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+/* Estilos para el área de entrada del mensaje */
+.message-input {
+    padding: 5px;
+    border-top: 1px solid #530889;
+    display: flex;
+    align-items: center;
+}
+
+/* Ajustar el input para que ocupe el espacio disponible */
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+/* Estilo del botón de enviar */
+.message-input .button-send {
+    background: linear-gradient(to right, #989898, #3a3b3b);
+  border: none;
+  transition: background-position 0.3s ease, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  background-size: 200% auto;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-right: 20px;
+  font-size: 15px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Cambia el tamaño de la caja de envío al pasar el mouse */
+.message-input .button-send:hover {
+    background-color: #c65c32;
+    color: #ffffff;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/*RESPONSIVE */
+@media (max-width: 768px) {
+    #chat-bot {
+        bottom: 50px;
+        margin-bottom: 50px;
+    }
+    #robot-icon {
+        bottom: 10px;
+        margin-bottom: 10px;
+    }
+}
+.sent {
+    background-color: #f5aef2; /* Color de fondo para mensajes enviados */
+    text-align: right; /* Alineación a la derecha */
+    padding: 10px; /* Espaciado interno para el mensaje */
+    border-radius: 10px;
+    margin: 5px 0;
+    display: inline-block; 
+    width: auto; 
+    max-width: 100%; 
+    white-space: normal; 
+}
+
+.received {
+    background-color:  #343541;
+    text-align: left;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    display: inline-block; 
+    max-width: 100%; 
+    white-space: normal; 
+}
+
+#wifi-loader {
+    --background: #62abff;
+    --front-color: #530889;
+    --front-color-in: #530889;
+    --back-color: #c3c8de;
+    --text-color: #414856;
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #wifi-loader svg {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #wifi-loader svg circle {
+    position: absolute;
+    fill: none;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(-100deg);
+    transform-origin: center;
+  }
+  
+  #wifi-loader svg circle.back {
+    stroke: var(--back-color);
+  }
+  
+  #wifi-loader svg circle.front {
+    stroke: var(--front-color);
+  }
+  
+  #wifi-loader svg.circle-outer {
+    height: 25px;
+    width: 25px;
+  }
+  
+  #wifi-loader svg.circle-outer circle {
+    stroke-dasharray: 62.75 188.25;
+  }
+  
+  #wifi-loader svg.circle-outer circle.back {
+    animation: circle-outer135 1.8s ease infinite 0.3s;
+  }
+  
+  #wifi-loader svg.circle-outer circle.front {
+    animation: circle-outer135 1.8s ease infinite 0.15s;
+  }
+  
+  #wifi-loader svg.circle-middle {
+    height: 25px;
+    width: 25px;
+    margin-left: 10px;
+  }
+  
+  #wifi-loader svg.circle-middle circle {
+    stroke: var(--front-color-in);
+    stroke-dasharray: 42.5 127.5;
+  }
+  
+  #wifi-loader svg.circle-middle circle.back {
+    animation: circle-middle6123 1.8s ease infinite 0.25s;
+  }
+  
+  #wifi-loader svg.circle-middle circle.front {
+    animation: circle-middle6123 1.8s ease infinite 0.1s;
+  }
+  
+  #wifi-loader svg.circle-inner {
+    height: 34px;
+    width: 34px;
+  }
+  
+  #wifi-loader svg.circle-inner circle {
+    stroke-dasharray: 22 66;
+  }
+  
+  #wifi-loader svg.circle-inner circle.back {
+    animation: circle-inner162 1.8s ease infinite 0.2s;
+  }
+  
+  #wifi-loader svg.circle-inner circle.front {
+    animation: circle-inner162 1.8s ease infinite 0.05s;
+  }
+  
+  #wifi-loader .text {
+    position: absolute;
+    bottom: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: lowercase;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    margin-left: 10px;
+  }
+  
+  #wifi-loader .text::before,
+  #wifi-loader .text::after {
+    content: attr(data-text);
+  }
+  
+  #wifi-loader .text::before {
+    color: var(--text-color);
+  }
+  
+  #wifi-loader .text::after {
+    color: var(--front-color-in);
+    animation: text-animation76 3.6s ease infinite;
+    position: absolute;
+    left: 0;
+  }
+  
+  @keyframes circle-outer135 {
+    0% {
+      stroke-dashoffset: 25;
+    }
+  
+    25% {
+      stroke-dashoffset: 0;
+    }
+  
+    65% {
+      stroke-dashoffset: 301;
+    }
+  
+    80% {
+      stroke-dashoffset: 276;
+    }
+  
+    100% {
+      stroke-dashoffset: 276;
+    }
+  }
+  
+  @keyframes circle-middle6123 {
+    0% {
+      stroke-dashoffset: 17;
+    }
+  
+    25% {
+      stroke-dashoffset: 0;
+    }
+  
+    65% {
+      stroke-dashoffset: 204;
+    }
+  
+    80% {
+      stroke-dashoffset: 187;
+    }
+  
+    100% {
+      stroke-dashoffset: 187;
+    }
+  }
+  
+  @keyframes circle-inner162 {
+    0% {
+      stroke-dashoffset: 9;
+    }
+  
+    25% {
+      stroke-dashoffset: 0;
+    }
+  
+    65% {
+      stroke-dashoffset: 106;
+    }
+  
+    80% {
+      stroke-dashoffset: 97;
+    }
+  
+    100% {
+      stroke-dashoffset: 97;
+    }
+  }
+  
+  @keyframes text-animation76 {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+  
+    50% {
+      clip-path: inset(0);
+    }
+  
+    100% {
+      clip-path: inset(0 0 0 100%);
+    }
+  }
+  

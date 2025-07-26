@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import * as AOS from 'aos'; 
+import * as AOS from 'aos';
+import { ChatbotUiComponent } from "../chatbot-ui/chatbot-ui.component"; 
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgbCarouselModule, ],
+  imports: [NgbCarouselModule, ChatbotUiComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

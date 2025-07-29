@@ -10,6 +10,7 @@
     transform: translateX(-50%);
     z-index: 1000;
     border: 2px solid #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.375);
 }
 
 .nav-item {

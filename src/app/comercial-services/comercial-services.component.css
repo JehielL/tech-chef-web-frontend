@@ -1,0 +1,454 @@
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position-y: -50px; 
+    max-width: 130.5vw;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(123, 123, 123, 0.753) 0%, rgb(31, 32, 32) 12%, rgb(0, 0, 0) 26%, rgb(34, 34, 34) 100%);
+    font-family: "Sharp Grotesk 25", sans-serif;
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.parallax::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+}
+
+.parallax .col-md-6 {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
+.title-era {
+    margin-left: 10px;
+    font-family: "Sharp Grotesk 25", sans-serif;
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.custom-text {
+    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    font-weight: 300;
+    opacity: 0.92;
+    letter-spacing: 0.3px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos para texto destacado en parallax */
+.text-highlight {
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: 0 0 8px rgba(221, 218, 217, 0.4);
+}
+
+.text-emphasis {
+    color: #ffffff;
+    font-style: italic;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Clase para ocultar elementos visualmente pero mantenerlos accesibles para screen readers */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Skip link para accesibilidad */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+    border-radius: 4px;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+.welcome-text {
+    color: #ff8c42;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-shadow: 0 0 12px rgba(255, 140, 66, 0.5);
+    letter-spacing: 0.5px;
+}
+ 
+
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  margin: 4px 10px;
+}
+
+.section-title p {
+  margin: 0;
+  margin: -15px 0 15px 0;
+  font-size: 360px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+
+
+.about-me .content {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  font-size: 50px;
+}
+
+
+.about-me .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.about-me .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-me .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.about-me .content ul strong {
+  margin-right: 10px;
+}
+
+.about-me .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: #4ce8eb;
+  line-height: 0;
+}
+
+.about-me .content p:last-child {
+  margin-bottom: 0;
+}
+
+
+
+#about .custom-name {
+  text-align: center;
+}
+
+
+  
+
+.horizontal-bars {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #e9e9e9, #6e6c6e, #fafafa);
+  /* Degradado de blanco a gris a blanco */
+  margin-bottom: 1rem;
+}
+
+
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Estilos para la sección de contenido */
+.content-section {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(25, 25, 25, 0.9) 100%);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #ededed 50%, transparent 100%);
+}
+
+.content-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.customstrong {
+    color: #ff8c42;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 140, 66, 0.3);
+}
+
+/* Gradiente para texto destacado - versión original mejorada */
+
+
+@keyframes scrollGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* Efectos de entrada suaves */
+.lead-content p {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.lead-content p:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.lead-content p:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de texto letra por letra con scroll */
+.animated-headline {
+    text-align: center;
+    overflow: hidden;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.animated-headline p {
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.animated-headline .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease-out;
+}
+
+.animated-headline .word.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animated-headline .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-out;
+}
+
+.animated-headline .letter.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+
+
+@keyframes pulseGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(120%); /* Mueve todos los slides fuera de la vista hacia la derecha */
+  }
+  100% {
+    transform: translateX(-100%); /* Mueve todos los slides fuera de la vista hacia la izquierda */
+  }
+}
+
+.slider .slide:hover .slide-track {
+  animation-play-state: paused;
+}
+
+.slider .slide:hover {
+  cursor: pointer; 
+}
+
+
+/* Responsive Design Mejorado */
+@media (max-width: 768px) {
+  section {
+    top: 120px;
+  }
+
+  section.section-show {
+    top: 80px;
+  }
+
+  .parallax {
+    padding: 2rem 1rem;
+    min-height: 80vh;
+  }
+
+  .title-era {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    margin-left: 0;
+    text-align: center;
+    margin-top: 150px;
+  }
+
+  .custom-text {
+    font-size: clamp(1rem, 4.5vw, 1.3rem);
+    text-align: center;
+    max-width: 95%;
+    line-height: 1.6;
+  }
+
+  .text-highlight {
+    font-size: 1.05em;
+  }
+
+  .welcome-text {
+    font-size: 1.1em;
+  }
+
+  .content-title {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+
+  .animated-headline {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .animated-headline p {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    text-align: left;
+  }
+
+  .custom-name{
+    margin-left: 5px;
+  }
+
+  
+
+  .about-us{
+    margin: auto;
+  }
+ 
+  .custom-name{
+    margin-left: auto;
+  }
+  .count-box{
+    margin-top: 15px;
+  }
+  .hero-tech-section{
+    margin-top: -120px;
+    margin-bottom: 120px;
+  }
+
+  .first-title{
+    margin-top: -80px;
+  }
+
+  .counts .count-box {
+    padding: 30px 30px 25px 30px;
+    width: 65%;
+    position: relative;
+    text-align: center;
+    background: rgba(156, 150, 150, 0.24);
+    border-radius: 30px;
+    margin-bottom: 30px;
+    margin-left: 18%;
+  }
+
+  .about-me .content {
+    font-size: 30px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  
+ 
+}
+
+

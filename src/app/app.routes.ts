@@ -4,6 +4,7 @@ import { BlogTechComponent } from './blog-tech/blog-tech.component';
 import { BlogEmprendimientoComponent } from './blog-emprendimiento/blog-emprendimiento.component';
 import { BlogDesarrolloComponent } from './blog-desarrollo/blog-desarrollo.component';
 import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
+import { ComercialServicesComponent } from './comercial-services/comercial-services.component';
 
 export const routes: Routes = [
 
@@ -33,11 +34,16 @@ export const routes: Routes = [
         path: 'politica-privacidad',
         component: PoliticaPrivacidadComponent
     },
+    {
+        path: 'nuestros-servicios',
+        component: ComercialServicesComponent
+    },
     
     {
         path: '',
         component: HomeComponent,
         pathMatch: 'full'
     }
+    
    
 ];

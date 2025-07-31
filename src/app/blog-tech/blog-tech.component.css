@@ -10,7 +10,7 @@
     background-position-y: -100px; 
     max-width: 130.5vw;
     background: rgb(2, 0, 36);
-    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(51, 169, 161, 1) 12%, rgb(0, 0, 0) 26%, rgba(111, 190, 148, 1) 100%);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgb(31, 32, 32) 12%, rgb(0, 0, 0) 26%, rgb(34, 34, 34) 100%);
     font-family: "Sharp Grotesk 25", sans-serif;
  
    

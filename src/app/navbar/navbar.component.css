@@ -211,17 +211,19 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: 25px;
-    max-width: 150px;
+    margin-left: 15px;
+    max-width: 120px;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
 .navbar-brand img {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     filter: brightness(1) contrast(1.1);
-    max-width: 150px !important; /* Controlar siempre el tamaño */
+    max-width: 120px !important; /* Controlar siempre el tamaño */
     height: auto;
+    margin-left: -15px !important;
 }
 
 
@@ -232,12 +234,12 @@
 
 /* Ajuste para navbar fijo arriba - LOGO MÁS GRANDE */
 .navbar.navbar-top .navbar-brand {
-    max-width: 180px; /* Más grande cuando está fijo arriba */
-    margin-left: 40px; /* Más espacio para el logo grande */
+    max-width: 140px; /* Más grande cuando está fijo arriba */
+    margin-left: 10px; /* Más espacio para el logo grande */
 }
 
 .navbar.navbar-top .navbar-brand img {
-    max-width: 180px !important; /* Logo grande al hacer scroll */
+    max-width: 140px !important; /* Logo grande al hacer scroll */
 }
 
 /* Toggle Button Premium */

@@ -26,6 +26,42 @@ body {
   z-index:-1;
 }
 
+.bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.75) 20%, rgba(25, 25, 25, 0.856) 50%, rgba(15, 15, 15, 0.884) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 10, 0.577);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Capa de fondo global para todas las páginas */
+.page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.85) 0%, rgba(25, 25, 25, 0.75) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .bg2 {
   animation-direction:alternate-reverse;
   animation-duration:24s;

@@ -6,6 +6,13 @@ body {
   margin:0;
 }
 
+/* Ajuste responsive para móvil */
+@media (max-width: 991px) {
+  body {
+    padding-top: 100px; /* Menos espacio en móvil */
+  }
+}
+
 .bg {
   animation:slide 14s ease-in-out infinite alternate;
   background-image: linear-gradient(-60deg, rgb(0, 0, 0) 60.33%, rgb(149, 159, 154) 60%, #fff 43.33%);

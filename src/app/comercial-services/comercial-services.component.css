@@ -65,6 +65,7 @@
     text-shadow: 0 0 8px rgba(221, 218, 217, 0.4);
 }
 
+
 .text-emphasis {
     color: #ffffff;
     font-style: italic;
@@ -103,7 +104,7 @@
 }
 
 .welcome-text {
-    color: #ff8c42;
+    color: #fcf498;
     font-weight: 600;
     font-size: 1.1em;
     text-shadow: 0 0 12px rgba(255, 140, 66, 0.5);
@@ -230,9 +231,10 @@
 }
 
 .customstrong {
-    color: #ff8c42;
+    color: #fcf498;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(255, 140, 66, 0.3);
+    text-shadow: 0 0 15px rgba(255, 140, 66, 0.4);
+    font-size: 1.05em;
 }
 
 /* Gradiente para texto destacado - versión original mejorada */
@@ -273,51 +275,38 @@
 .animated-headline {
     text-align: center;
     overflow: hidden;
-    padding: 2rem;
+    padding: 3rem 2.5rem;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin: 2rem 0;
 }
 
 .animated-headline p {
-    font-size: clamp(1rem, 2.2vw, 1.3rem);
-    line-height: 1.8;
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
     margin: 0;
     text-align: justify;
     hyphens: auto;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
 .animated-headline .word {
     display: inline-block;
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease-out;
-}
-
-.animated-headline .word.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.animated-headline .letter {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease-out;
-}
-
-.animated-headline .letter.visible {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateY(30px) scale(0.8);
+    will-change: opacity, transform;
 }
 
 .word {
   display: inline-block;
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(30px) scale(0.8);
+  will-change: opacity, transform;
 }
 
 
@@ -396,13 +385,14 @@
   }
 
   .animated-headline {
-    padding: 1.5rem;
-    margin: 0 1rem;
+    padding: 2rem 1.5rem;
+    margin: 1rem 0.5rem;
   }
 
   .animated-headline p {
-    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
     text-align: left;
+    line-height: 1.5;
   }
 
   .custom-name{

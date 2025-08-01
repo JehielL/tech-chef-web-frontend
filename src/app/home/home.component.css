@@ -418,3 +418,19 @@ a.link-primary:hover {
   font-family: inherit;
   margin-top: 10px;
 }
+
+/* Estilos responsivos para evitar solapamiento con navbar */
+@media (max-width: 991px) {
+  .custom-img {
+    margin-top: 50px; /* Reducido desde 200px */
+  }
+  
+  .custom-text {
+    margin-top: 30px; /* Reducido desde 170px */
+    font-size: clamp(35px, 8vw, 75px); /* Texto más responsivo */
+  }
+  
+  .custom-text-team {
+    margin-top: 30px; /* Reducido desde 50px */
+  }
+}

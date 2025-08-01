@@ -7,7 +7,7 @@ import { ChatbotUiComponent } from "../chatbot-ui/chatbot-ui.component";
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgbCarouselModule, ChatbotUiComponent],
+  imports: [NgbCarouselModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

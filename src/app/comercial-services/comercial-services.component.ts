@@ -98,16 +98,34 @@ export class ComercialServicesComponent implements OnInit, AfterViewChecked {
       
       wrapTextNodes(element);
   
-      gsap.from('.word', {
+      // Configurar la animación GSAP más suave
+      gsap.registerPlugin(ScrollTrigger);
+      
+      const words = element.querySelectorAll('.word');
+      
+      // Asegurar que todas las palabras estén inicialmente ocultas
+      gsap.set(words, {
+        opacity: 0,
+        y: 30,
+        scale: 0.8
+      });
+      
+      gsap.to(words, {
         scrollTrigger: {
           trigger: element,
-          start: 'top 80%',
+          start: 'top 70%',
+          toggleActions: "play none none none",
+          once: true
         },
-        opacity: 0,
-        y: 50,
-        stagger: 0.09,
-        duration: 1,
-        ease: 'power3.out'
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: {
+          amount: 3.5,
+          ease: "power2.inOut"
+        },
+        duration: 1.8,
+        ease: 'power2.out'
       });
     }
   }

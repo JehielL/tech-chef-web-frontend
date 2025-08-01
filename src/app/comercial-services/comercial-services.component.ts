@@ -1,7 +1,10 @@
-import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import Aos from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+
+// Registrar el plugin ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-comercial-services',
@@ -10,12 +13,15 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
   templateUrl: './comercial-services.component.html',
   styleUrl: './comercial-services.component.css'
 })
-export class ComercialServicesComponent implements OnInit, AfterViewChecked {
+export class ComercialServicesComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   activedLoader = true;
   @ViewChild('skills') skillsElement!: ElementRef;
   @ViewChild('headline', { static: false }) headline!: ElementRef;
   animationTriggered = false;
+  horizontalScrollInitialized = false;
+  private resizeTimeout: any;
+  private horizontalScrollTrigger: any = null;
 
  
   constructor() {}
@@ -127,6 +133,95 @@ export class ComercialServicesComponent implements OnInit, AfterViewChecked {
         duration: 1.8,
         ease: 'power2.out'
       });
+
+      // Inicializar scroll horizontal después de la animación del headline
+      this.initHorizontalScroll();
+    }
+  }
+
+  private initHorizontalScroll(): void {
+    if (this.horizontalScrollInitialized) return;
+    this.horizontalScrollInitialized = true;
+
+    // Esperar un poco para asegurar que el DOM esté listo
+    setTimeout(() => {
+      const horizontalSection = document.querySelector('.horizontal-scroll-section');
+      const horizontalPanels = document.querySelector('.horizontal-panels');
+
+      if (horizontalSection && horizontalPanels) {
+        // Función para crear/actualizar la animación
+        const createScrollAnimation = () => {
+          // Solo limpiar la animación horizontal anterior
+          if (this.horizontalScrollTrigger) {
+            this.horizontalScrollTrigger.kill();
+          }
+          
+          // Recalcular dimensiones
+          const scrollDistance = horizontalPanels.scrollWidth - window.innerWidth;
+          const isMobile = window.innerWidth <= 768;
+          
+          // VERSION SIMPLIFICADA - Solo lo básico
+          const animation = gsap.to(horizontalPanels, {
+            x: () => -scrollDistance,
+            ease: "none",
+            scrollTrigger: {
+              trigger: horizontalSection,
+              pin: true,
+              scrub: 1,
+              end: () => `+=${scrollDistance}`,
+              refreshPriority: -1,
+              // Añadir un pequeño offset en mobile para evitar solapamiento
+              invalidateOnRefresh: true,
+              onRefresh: () => {
+                const newDistance = horizontalPanels.scrollWidth - window.innerWidth;
+                console.log('Refreshed - New distance:', newDistance, 'Mobile:', isMobile);
+              }
+            }
+          });
+
+          // Guardar referencia para poder limpiarla específicamente
+          this.horizontalScrollTrigger = animation.scrollTrigger;
+
+          console.log('Horizontal scroll initialized/updated');
+          console.log('ScrollWidth:', horizontalPanels.scrollWidth);
+          console.log('Window width:', window.innerWidth);
+          console.log('Distance:', scrollDistance);
+          console.log('Is mobile:', window.innerWidth <= 768);
+        };
+
+        // Crear animación inicial
+        createScrollAnimation();
+
+        // Listener para resize para responsive
+        const handleResize = () => {
+          // Debounce para evitar múltiples llamadas
+          clearTimeout(this.resizeTimeout);
+          this.resizeTimeout = setTimeout(() => {
+            console.log('Resize detected, updating scroll animation');
+            createScrollAnimation();
+            ScrollTrigger.refresh();
+          }, 250);
+        };
+
+        window.addEventListener('resize', handleResize);
+        
+        // Limpiar el listener cuando sea necesario
+        setTimeout(() => {
+          // Refresh adicional para asegurar cálculos correctos
+          ScrollTrigger.refresh();
+        }, 500);
+      }
+    }, 100);
+  }
+
+  ngOnDestroy(): void {
+    // Limpiar listeners y timeouts
+    if (this.resizeTimeout) {
+      clearTimeout(this.resizeTimeout);
+    }
+    // Solo limpiar el ScrollTrigger del scroll horizontal
+    if (this.horizontalScrollTrigger) {
+      this.horizontalScrollTrigger.kill();
     }
   }
 }

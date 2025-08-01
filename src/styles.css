@@ -133,7 +133,7 @@ h1 {
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: #000000; 
+  background: #f7f7f7; 
 }
 
 .loader .loader_item:nth-child(1) {

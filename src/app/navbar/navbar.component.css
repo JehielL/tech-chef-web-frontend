@@ -325,9 +325,9 @@
         min-height: 70px;
         padding: 15px 20px;
         width: 95%;
-        border-radius: 20px;
+        border-radius: 20px 20px 0 0;
         margin-top: 10px;
-        background: rgba(255, 255, 255, 0.90);
+        background: rgba(255, 255, 255, 1);
         backdrop-filter: blur(15px);
         position: fixed;
     }
@@ -336,31 +336,36 @@
     .navbar.navbar-scrolled {
         width: 95%;
         margin-top: 8px;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 1);
+        border-radius: 20px 20px 0 0;
     }
 
     .navbar.navbar-top {
         width: 100%;
         margin-top: 0;
-        border-radius: 0 0 20px 20px;
-        background: rgba(255, 255, 255, 0.90);
+        border-radius: 0;
+        background: rgba(255, 255, 255, 1);
+    }
+
+    .navbar.navbar-top .navbar-brand {
+        margin-left: -20px;
     }
 
     .navbar-brand {
         position: static;
         transform: none;
-        margin-left: 0;
+        margin-left: -20px;
         max-width: 120px;
     }
 
     .navbar-brand img {
-        max-width: 120px !important;
+        max-width: 140px !important;
     }
 
     .navbar-toggler {
         position: static;
         transform: none;
-        background: #667eea;
+        background: #2f2f31;
         border: none;
         border-radius: 12px;
         padding: 8px 12px;
@@ -391,12 +396,12 @@
         left: 0;
         right: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 1);
         backdrop-filter: blur(15px);
         border-radius: 0 0 20px 20px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         padding: 20px;
-        margin-top: 5px;
+        margin-top: 0;
         z-index: 1000;
     }
 
@@ -474,7 +479,6 @@
 
     .dropdown-item:hover {
         background: rgba(102, 126, 234, 0.1);
-        color: #667eea;
     }
 
     .dropdown-item:last-child {

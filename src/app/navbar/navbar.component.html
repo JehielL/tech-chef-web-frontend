@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg" 
      [class.navbar-scrolled]="isScrolled"
      [class.navbar-top]="isTop"
+     [class.navbar-hidden]="isHidden"
+     (mouseenter)="onNavbarHover()"
+     (mouseleave)="onNavbarLeave()"
      aria-label="Tenth navbar example">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/">

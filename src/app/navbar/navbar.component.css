@@ -69,9 +69,80 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-/* No hover effect cuando está en top */
-.navbar.navbar-top:hover {
-    transform: translateX(-50%);
+/* Estado oculto - Isla flotante estilo macOS */
+.navbar.navbar-hidden {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    
+    /* Transformación que oculta la mayor parte del navbar */
+    transform: translateX(-50%) translateY(-70px); /* Se oculta 70px hacia arriba */
+    border-radius: 0 0 60px 60px; /* Solo se ve la parte inferior redondeada */
+    width: 300px; /* Más angosto cuando está oculto */
+    height: 40px; /* Más pequeño */
+    
+    /* Sombra más sutil cuando está oculto */
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.06);
+    
+    /* Transición suave para el estado oculto */
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Efecto hover cuando está oculto - Se despliega */
+.navbar.navbar-hidden:hover {
+    transform: translateX(-50%) translateY(-10px); /* Se despliega */
+    width: 90%; /* Se expande al ancho normal */
+    height: 90px; /* Altura normal */
+    border-radius: 60px; /* Vuelve al estilo flotante */
+    
+    /* Sombra más pronunciada al hacer hover */
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Asegurar que el contenido se vea correctamente cuando está oculto */
+.navbar.navbar-hidden .navbar-collapse {
+    opacity: 0.3; /* Contenido semi-transparente cuando está oculto */
+    transition: opacity 0.3s ease;
+}
+
+.navbar.navbar-hidden:hover .navbar-collapse {
+    opacity: 1; /* Contenido completamente visible al hacer hover */
+}
+
+/* Ocultar algunos elementos cuando está en modo isla */
+.navbar.navbar-hidden .navbar-nav,
+.navbar.navbar-hidden .d-flex {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar.navbar-hidden:hover .navbar-nav,
+.navbar.navbar-hidden:hover .d-flex {
+    opacity: 1;
+}
+
+/* Logo siempre visible pero más pequeño cuando está oculto */
+.navbar.navbar-hidden .navbar-brand {
+    max-width: 60px;
+    transition: all 0.3s ease;
+}
+
+.navbar.navbar-hidden:hover .navbar-brand {
+    max-width: 120px;
+}
+
+.navbar.navbar-hidden .navbar-brand img {
+    max-width: 60px !important;
+    transition: all 0.3s ease;
+}
+
+.navbar.navbar-hidden:hover .navbar-brand img {
+    max-width: 120px !important;
 }
 
 .nav-item {
@@ -349,6 +420,21 @@
         background: rgba(255, 255, 255, 1);
     }
 
+    /* Estado oculto en móvil - Adaptado */
+    .navbar.navbar-hidden {
+        transform: translateX(-50%) translateY(-50px); /* Menos ocultación en móvil */
+        width: 200px; /* Más pequeño en móvil */
+        height: 30px;
+        border-radius: 0 0 40px 40px;
+    }
+
+    .navbar.navbar-hidden:hover {
+        transform: translateX(-50%) translateY(-5px);
+        width: 95%;
+        height: 70px;
+        border-radius: 20px;
+    }
+
     .navbar.navbar-top .navbar-brand {
         margin-left: -20px;
     }
@@ -361,6 +447,25 @@
     }
 
     .navbar-brand img {
+        max-width: 140px !important;
+    }
+
+    /* Ajustes para logo en estado oculto móvil */
+    .navbar.navbar-hidden .navbar-brand {
+        max-width: 40px;
+        margin-left: -10px;
+    }
+
+    .navbar.navbar-hidden .navbar-brand img {
+        max-width: 40px !important;
+    }
+
+    .navbar.navbar-hidden:hover .navbar-brand {
+        max-width: 120px;
+        margin-left: -20px;
+    }
+
+    .navbar.navbar-hidden:hover .navbar-brand img {
         max-width: 140px !important;
     }
 

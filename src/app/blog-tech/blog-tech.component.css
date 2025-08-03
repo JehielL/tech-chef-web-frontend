@@ -160,7 +160,7 @@ app-blog-tech .highlight-text {
 app-blog-tech .highlight-text::after {
   content: '';
   position: absolute;
-  bottom: 0.2em;
+  bottom: -0.1em;
   left: 0;
   right: 0;
   height: 0.3em;

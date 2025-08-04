@@ -28,19 +28,13 @@
         }
         @if (isLoading) {
         
-          <div id="wifi-loader" style="margin-left: 130px; margin-top: 50px;">
-          <svg viewBox="0 0 86 86" class="circle-outer">
-            <circle r="40" cy="43" cx="43" class="back"></circle>
-            <circle r="40" cy="43" cx="43" class="front"></circle>
-            <circle r="40" cy="43" cx="43" class="new"></circle>
-          </svg>
-          <svg viewBox="0 0 60 60" class="circle-middle">
-            <circle r="27" cy="30" cx="30" class="back"></circle>
-            <circle r="27" cy="30" cx="30" class="front"></circle>
-          </svg>
-
-          <div data-text="Pensando..." class="text"></div>
-        </div>
+          <div id="wifi-loader">
+            <div class="apple-dots">
+              <div class="apple-dot"></div>
+              <div class="apple-dot"></div>
+              <div class="apple-dot"></div>
+            </div>
+          </div>
 
         }
 
@@ -49,7 +43,9 @@
     <div class="message-input">
       <input type="text" id="message-input" class="message-send" placeholder="Escribe un mensaje..."
         (keydown)="handleKeyDown($event)">
-      <button (click)="sendMessage($event)" class="button-send">Enviar</button>
+      <button (click)="sendMessage($event)" class="button-send">
+        <i class="fas fa-paper-plane"></i>
+      </button>
     </div>
   </div>
 </div>

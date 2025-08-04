@@ -1,9 +1,15 @@
 html {
-  height:100%;
+  height: 100%;
+  overflow-x: hidden; /* Prevenir scroll horizontal */
 }
 
 body {
-  margin:0;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevenir scroll horizontal */
+  /* Fondo exactamente igual al hero */
+  background: radial-gradient(ellipse at center, rgba(15, 15, 20, 0.98) 0%, rgba(8, 8, 12, 1) 100%);
+  position: relative;
 }
 
 /* Ajuste responsive para móvil */
@@ -13,19 +19,19 @@ body {
   }
 }
 
+/* Fondo global exactamente igual al hero */
 .bg {
-  animation:slide 14s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, rgb(0, 0, 0) 60.33%, rgb(149, 159, 154) 60%, #fff 43.33%);
-
-  bottom:0;
-  left:-50%;
-  opacity:.5;
-  position:fixed;
-  right:-50%;
-  top:0;
-  z-index:-1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Fondo base idéntico al hero */
+  background: radial-gradient(ellipse at center, rgba(15, 15, 20, 0.98) 0%, rgba(8, 8, 12, 1) 100%);
+  z-index: -10;
 }
 
+/* Overlay sutil igual al hero */
 .bg::before {
   content: '';
   position: absolute;
@@ -33,42 +39,57 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(15, 15, 15, 0.75) 20%, rgba(25, 25, 25, 0.856) 50%, rgba(15, 15, 15, 0.884) 100%);
-  pointer-events: none;
+  background: 
+    linear-gradient(135deg, rgba(0, 149, 255, 0.03) 0%, transparent 50%),
+    linear-gradient(225deg, rgba(182, 89, 166, 0.03) 0%, transparent 50%);
   z-index: 1;
 }
 
+/* Partículas animadas globales - iguales al hero */
 .bg::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(10, 10, 10, 0.577);
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 149, 255, 0.4) 0px, transparent 2px),
+    radial-gradient(circle at 20% 60%, rgba(182, 89, 166, 0.4) 0px, transparent 3px),
+    radial-gradient(circle at 85% 40%, rgba(0, 149, 255, 0.3) 0px, transparent 1.5px),
+    radial-gradient(circle at 75% 30%, rgba(182, 89, 166, 0.4) 0px, transparent 2.5px),
+    radial-gradient(circle at 30% 80%, rgba(0, 149, 255, 0.4) 0px, transparent 2px);
+  animation: particleFloat 20s infinite linear;
   z-index: 2;
 }
 
-/* Capa de fondo global para todas las páginas */
-.page-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(15, 15, 15, 0.85) 0%, rgba(25, 25, 25, 0.75) 100%);
-  pointer-events: none;
-  z-index: -1;
+/* Animación de partículas - idéntica al hero */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 .bg2 {
-  animation-direction:alternate-reverse;
-  animation-duration:24s;
+  animation-direction: reverse;
+  animation-duration: 18s;
+  opacity: 0.7;
 }
 
 .bg3 {
-  animation-duration:23s;
+  animation-duration: 22s;
+  opacity: 0.5;
 }
 
 .content {
@@ -88,12 +109,29 @@ h1 {
   font-family:monospace;
 }
 
-@keyframes slide {
+@keyframes subtleMove {
   0% {
-    transform:translateX(-25%);
+    transform: scale(1) rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: scale(1.02) rotate(0.5deg);
+    filter: hue-rotate(5deg);
   }
   100% {
-    transform:translateX(25%);
+    transform: scale(1) rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-5px);
   }
 }
 

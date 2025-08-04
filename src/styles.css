@@ -45,7 +45,7 @@ body {
   z-index: 1;
 }
 
-/* Partículas más sutiles - iguales al hero */
+/* Partículas más sutiles con variedad de tamaños - iguales al hero */
 .bg::after {
   content: '';
   position: absolute;
@@ -54,11 +54,18 @@ body {
   width: 100%;
   height: 100%;
   background-image: 
+    /* Partículas pequeñas (3px) */
+    radial-gradient(circle at 15% 25%, rgba(0, 149, 255, 0.15) 0px, transparent 1.5px),
+    radial-gradient(circle at 85% 15%, rgba(182, 89, 166, 0.15) 0px, transparent 1.5px),
+    /* Partículas medianas (4px) */
     radial-gradient(circle at 10% 20%, rgba(0, 149, 255, 0.2) 0px, transparent 2px),
-    radial-gradient(circle at 20% 60%, rgba(182, 89, 166, 0.2) 0px, transparent 3px),
-    radial-gradient(circle at 85% 40%, rgba(0, 149, 255, 0.15) 0px, transparent 1.5px),
-    radial-gradient(circle at 75% 30%, rgba(182, 89, 166, 0.2) 0px, transparent 2.5px),
-    radial-gradient(circle at 30% 80%, rgba(0, 149, 255, 0.15) 0px, transparent 2px);
+    radial-gradient(circle at 30% 80%, rgba(0, 149, 255, 0.15) 0px, transparent 2px),
+    /* Partículas grandes (6px) - más visibles */
+    radial-gradient(circle at 20% 60%, rgba(182, 89, 166, 0.25) 0px, transparent 3px),
+    radial-gradient(circle at 75% 30%, rgba(0, 149, 255, 0.25) 0px, transparent 3px),
+    /* Partículas extra en diferentes posiciones */
+    radial-gradient(circle at 90% 70%, rgba(182, 89, 166, 0.15) 0px, transparent 2px),
+    radial-gradient(circle at 5% 85%, rgba(0, 149, 255, 0.15) 0px, transparent 1.5px);
   animation: particleFloat 20s infinite linear;
   z-index: 2;
 }

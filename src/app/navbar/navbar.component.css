@@ -1,3 +1,53 @@
+/* ===== NAVBAR CURSOR FIXES - MÁXIMA PRIORIDAD ===== */
+/* Forzar cursor pointer con máxima especificidad */
+.navbar .nav-link,
+.navbar .navbar-brand,
+.navbar .navbar-brand img,
+.navbar .navbar-brand *,
+.navbar .dropdown-item,
+.navbar .dropdown-toggle,
+.navbar .btn-cta,
+.navbar .navbar-toggler,
+.navbar .nav-item,
+.navbar .nav-item .nav-link,
+.navbar .dropdown-menu .dropdown-item,
+.navbar .d-flex .nav-link {
+    cursor: pointer !important;
+}
+
+/* Regla específica para elementos Bootstrap */
+.navbar-nav .nav-link,
+.navbar-brand,
+.dropdown-item,
+.dropdown-toggle,
+.btn {
+    cursor: pointer !important;
+}
+
+/* Sobrescribir cualquier cursor default */
+.navbar * {
+    cursor: pointer !important;
+}
+
+.navbar *:hover {
+    cursor: pointer !important;
+}
+
+/* Reglas específicas para clases de Bootstrap que pueden tener cursor auto */
+nav.navbar a,
+nav.navbar button,
+nav.navbar .nav-link,
+nav.navbar .navbar-brand,
+nav.navbar .dropdown-item,
+nav.navbar .dropdown-toggle,
+nav.navbar [role="button"],
+nav.navbar [data-bs-toggle],
+nav.navbar [ngbDropdownToggle],
+nav.navbar [ngbDropdownItem],
+nav.navbar [routerLink] {
+    cursor: pointer !important;
+}
+
 .navbar {
     /* Estado por defecto - En el top */
     background: rgba(255, 255, 255, 0.75);
@@ -96,8 +146,6 @@
     width: 90%; /* Se expande al ancho normal */
     height: 90px; /* Altura normal */
     border-radius: 60px; /* Vuelve al estilo flotante */
-    
-    /* Sombra más pronunciada al hacer hover */
     box-shadow: 
         0 25px 50px rgba(0, 0, 0, 0.15),
         0 10px 25px rgba(0, 0, 0, 0.08),
@@ -152,11 +200,15 @@
     border-radius: 20px;
     margin-right: 5px;
     padding: 4px 2px;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 10;
 }
 
 .nav-item:hover {
     background-color: rgba(102, 126, 234, 0.1);
     transform: translateY(-2px);
+    cursor: pointer !important;
 }
 
 .nav-item .nav-link {
@@ -166,12 +218,15 @@
     font-size: 15px;
     padding: 10px 16px;
     white-space: nowrap;
-    cursor: pointer;
     letter-spacing: 0.2px;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 10;
 }
 
 .nav-item:hover .nav-link {
     color: #667eea !important;
+    cursor: pointer !important;
 }
 
 /* Botón CTA Premium */
@@ -241,12 +296,16 @@
     color: #2c3e50;
     font-weight: 500;
     transition: all 0.2s ease;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 10;
 }
 
 .dropdown-item:hover {
     background-color: #f8f9fa;
     color: #667eea;
     padding-left: 25px;
+    cursor: pointer !important;
 }
 
 .dropdown-item i {
@@ -284,10 +343,10 @@
     transform: translateY(-50%);
     margin-left: 15px;
     max-width: 120px;
-    cursor: pointer;
+    cursor: pointer !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
 }
-
 
 .navbar-brand img {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -295,12 +354,12 @@
     max-width: 120px !important; /* Controlar siempre el tamaño */
     height: auto;
     margin-left: -15px !important;
+    cursor: pointer !important;
 }
-
-
 
 .navbar-brand:hover img {
     filter: brightness(1.05) contrast(1.15);
+    cursor: pointer !important;
 }
 
 /* Ajuste para navbar fijo arriba - LOGO MÁS GRANDE */
@@ -359,12 +418,15 @@
     padding: 12px 16px;
     border-radius: 15px;
     transition: all 0.3s ease;
-    cursor: pointer;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 10;
 }
 
 .d-flex .nav-link:hover {
     background-color: rgba(102, 126, 234, 0.1);
     color: #667eea !important;
+    cursor: pointer !important;
 }
 
 /* CTA Container */

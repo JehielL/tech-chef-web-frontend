@@ -206,7 +206,6 @@
 
 /* Estilos para la sección de contenido */
 .content-section {
-    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(25, 25, 25, 0.9) 100%);
     padding: 3.5rem 0;
     position: relative;
     overflow: hidden;

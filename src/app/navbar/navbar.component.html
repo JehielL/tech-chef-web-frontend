@@ -1,24 +1,17 @@
-<nav class="navbar navbar-expand-lg" 
-     [class.navbar-scrolled]="isScrolled"
-     [class.navbar-top]="isTop"
-     [class.navbar-hidden]="isHidden"
-     (mouseenter)="onNavbarHover()"
-     (mouseleave)="onNavbarLeave()"
-     aria-label="Tenth navbar example">
+<nav class="navbar navbar-expand-lg" [class.navbar-scrolled]="isScrolled" [class.navbar-top]="isTop"
+    [class.navbar-hidden]="isHidden" (mouseenter)="onNavbarHover()" (mouseleave)="onNavbarLeave()"
+    aria-label="Tenth navbar example">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/">
-            <img class="ms-3" 
-                 src="assets/logo-bs-removebg.png" 
-                 alt="Bite Software - Automatización Hostelera" 
-                 style="max-width: 130px; border-radius: 30px;">
+            <img class="ms-3" src="assets/logo-bs-removebg.png" alt="Bite Software - Automatización Hostelera"
+                style="max-width: 130px; border-radius: 30px;">
         </a>
         <button class="navbar-toggler" type="button" aria-controls="navbarContent" [attr.aria-expanded]="!collapsed"
             aria-label="Toggle navigation" (click)="collapsed = !collapsed">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-center" id="navbarsExample08"
-            [class.show]="!collapsed">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarsExample08" [class.show]="!collapsed">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link active bi bi-house" aria-current="page" routerLink="/"> Inicio</a>
@@ -39,9 +32,16 @@
                         <i class="bi bi-laptop"></i> Servicios
                     </a>
                     <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu">
-                        <a ngbDropdownItem href="nuestros-servicios"><i class="bi bi-restaurant me-2"></i>Outsourcing Restaurantes</a>
-                        <a ngbDropdownItem href="franchise-services"><i class="bi bi-building me-2"></i>Outsourcing Franquicias</a>
+                        <a ngbDropdownItem href="nuestros-servicios"><i class="fa-solid fa-bowl-food me-2"></i>Outsourcing
+                            Restaurantes</a>
+                                                    <div class="dropdown-divider"></div>
+
+                        <a ngbDropdownItem href="franchise-services"><i class="bi bi-building me-2"></i>Outsourcing
+                            Franquicias</a>
                         <div class="dropdown-divider"></div>
+                        <a ngbDropdownItem href="#"><i class="bi bi-fork-knife me-2"></i>Marketing & Producto</a>
+                                                    <div class="dropdown-divider"></div>
+
                         <a ngbDropdownItem href="#"><i class="bi bi-headset me-2"></i>Consultoría Tech</a>
                     </div>
                 </li>
@@ -49,10 +49,12 @@
                     <a class="nav-link bi bi-journal-code" routerLink="/blog-tech"> Blog</a>
                 </li>
             </ul>
-            
+
             <!-- CTA y Contacto a la derecha -->
             <div class="d-flex align-items-center gap-2">
-                <a target="_blank" class="nav-link bi bi-telephone-fill" href="https://wa.me/+34643907051?text=¡Hola! He visto vuestra web y me interesa conocer más sobre vuestros servicios de automatización. ¿Podríamos hablar?"> Contacto</a>
+                <a target="_blank" class="nav-link bi bi-telephone-fill"
+                    href="https://wa.me/+34643907051?text=¡Hola! He visto vuestra web y me interesa conocer más sobre vuestros servicios de automatización. ¿Podríamos hablar?">
+                    Contacto</a>
                 <a href="#demo" class="btn btn-cta">
                     <i class="bi bi-rocket-takeoff me-1"></i>Demo Gratis
                 </a>

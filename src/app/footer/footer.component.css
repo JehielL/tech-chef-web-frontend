@@ -1,69 +1,415 @@
-.footer-custom {
-    background-color: rgb(12, 12, 12);
-    opacity: 0.9;
-    color: #aaaaaa !important;
-    text-align: center; 
-    padding: 30px;
-    position: static; 
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 3000; 
+/* ===== FOOTER PREMIUM DESIGN ===== */
+/* Import Galanda Moderna font */
+@import url(https://db.onlinewebfonts.com/c/c6702b05c2eca3e9132d2edfa4f2321e?family=Galanda+Moderna+W01+Regular);
+
+@font-face {
+    font-family: "Galanda Moderna W01 Regular";
+    src: url("https://db.onlinewebfonts.com/t/c6702b05c2eca3e9132d2edfa4f2321e.eot");
+    src: url("https://db.onlinewebfonts.com/t/c6702b05c2eca3e9132d2edfa4f2321e.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/c6702b05c2eca3e9132d2edfa4f2321e.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/c6702b05c2eca3e9132d2edfa4f2321e.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/c6702b05c2eca3e9132d2edfa4f2321e.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/c6702b05c2eca3e9132d2edfa4f2321e.svg#Galanda Moderna W01 Regular")format("svg");
 }
 
+.footer-premium {
+    background: linear-gradient(135deg, 
+        rgba(15, 15, 20, 0.98) 0%, 
+        rgba(8, 8, 12, 1) 100%);
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-  .footer-custom .nav li a {
-    color: #ffffff;
-  }
-  
-  .nav-item {
-    color: #ffffff !important;
-  }
-  
-  .footer-custom a {
-    color: #fafafa !important;
-    transition: all 0.5s;
-    font-weight: bold;
-  }
-  
-  .footer-custom h5 {
-    color: #032455 !important;
-    transition: all 0.5s;
-  }
-  
-  .footer-custom a:hover {
-    color: #FFE156 !important;
-  }
-  
-  /* Media query para dispositivos móviles */
-  @media (max-width: 576px) {
-    .footer-custom {
-        padding: 20px;
-    }
-  
-    .footer-custom h5 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-  
-    .footer-custom p {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-  
-    .footer-custom .btn {
-        font-size: 12px;
-        padding: 8px 16px;
-        margin-top: 50px;
-    }
-  
-    .footer-custom .nav li a {
-        font-size: 12px;
-        align-items: center;
-    }
-  }
+/* Particles background effect */
+.footer-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
 
-  body {
-    margin-bottom: 0;
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: particleFloat 6s ease-in-out infinite;
+}
+
+.particle-1 {
+    width: 3px;
+    height: 3px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle-2 {
+    width: 2px;
+    height: 2px;
+    top: 60%;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+.particle-3 {
+    width: 1.5px;
+    height: 1.5px;
+    bottom: 30%;
+    left: 70%;
+    animation-delay: 4s;
+}
+
+@keyframes particleFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+    50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+}
+
+/* Container styling */
+.footer-premium .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Brand section */
+.footer-brand {
+    max-width: 300px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-divider {
+    width: 4px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+.brand-name {
+    color: rgba(255, 255, 255, 0.95);
+    font-family: "Galanda Moderna W01 Regular", serif, sans-serif;
+    font-size: 1.9rem;
+    font-weight: 100;
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.brand-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+/* Social links */
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: rgba(102, 126, 234, 0.5);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Footer sections */
+.footer-section {
+    margin-bottom: 30px;
+}
+
+.footer-title {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 1px;
+}
+
+/* Footer links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 0;
+}
+
+.footer-links a::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 1px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: rgba(255, 255, 255, 0.95);
+    padding-left: 20px;
+}
+
+.footer-links a:hover::before {
+    width: 12px;
+}
+
+/* Contact info */
+.contact-info {
+    margin-bottom: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+.contact-item i {
+    width: 20px;
+    color: rgba(102, 126, 234, 0.8);
+    font-size: 1.1rem;
+}
+
+.contact-item a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Newsletter */
+.newsletter-signup {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.newsletter-title {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 12px 15px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-input:focus {
+    border-color: rgba(102, 126, 234, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.newsletter-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Footer bottom */
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.legal-links {
+    display: flex;
+    gap: 25px;
+    justify-content: end;
+}
+
+.legal-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer glow effect */
+.footer-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    filter: blur(40px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .footer-premium {
+        padding: 60px 0 30px 0;
+    }
+    
+    .footer-brand {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-title {
+        text-align: center;
+    }
+    
+    .footer-links {
+        text-align: center;
+    }
+    
+    .footer-links a:hover {
+        padding-left: 0;
+    }
+    
+    .footer-links a::before {
+        display: none;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+    
+    .contact-item {
+        justify-content: center;
+    }
+    
+    .legal-links {
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-btn {
+        width: 100%;
+        height: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .legal-links {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+    }
 }
   

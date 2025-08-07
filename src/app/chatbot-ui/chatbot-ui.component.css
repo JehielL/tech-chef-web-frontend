@@ -61,87 +61,55 @@
     }
 }
 
-/* APPLE STYLE HEADER BUTTONS - VERSIÓN PROFESIONAL */
-.fa-minimize{
-    color: #8E8E93 !important;
+/* HEADER CONTROLS MINIMALISTAS */
+.header-controls {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+    margin-left: auto !important;
+}
+
+.control-btn {
+    background: none !important;
+    border: none !important;
     cursor: pointer !important;
-    margin-left: 10px !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    width: 28px !important;
-    height: 28px !important;
-    border-radius: 14px !important;
+    padding: 6px !important;
+    border-radius: 6px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 245, 0.8)) !important;
-    font-size: 12px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
-    border: 1px solid rgba(0, 0, 0, 0.08) !important;
-    position: relative !important;
-    overflow: hidden !important;
-}
-
-.fa-minimize::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: -100% !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent) !important;
-    transition: left 0.5s ease !important;
-}
-
-.fa-minimize:hover::before {
-    left: 100% !important;
-}
-
-.fa-minimize:hover {
-    color: #FF3B30 !important;
-    background: linear-gradient(145deg, rgba(255, 59, 48, 0.15), rgba(255, 59, 48, 0.08)) !important;
-    transform: scale(0.95) translateY(-1px) !important;
-    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
-}
-
-.fa-rotate {
-    color: #8E8E93 !important;
-    cursor: pointer !important;
-    margin-left: 10px !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: all 0.2s ease !important;
+    color: rgba(0, 0, 0, 0.4) !important;
     width: 28px !important;
     height: 28px !important;
-    border-radius: 14px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 245, 0.8)) !important;
-    font-size: 12px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
-    border: 1px solid rgba(0, 0, 0, 0.08) !important;
     position: relative !important;
-    overflow: hidden !important;
+    outline: none !important;
 }
 
-.fa-rotate::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: -100% !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent) !important;
-    transition: left 0.5s ease !important;
+.control-btn:hover {
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+    transform: scale(1.05) !important;
 }
 
-.fa-rotate:hover::before {
-    left: 100% !important;
+.control-btn:active {
+    transform: scale(0.95) !important;
 }
 
-.fa-rotate:hover {
+.reset-btn:hover {
     color: #007AFF !important;
-    background: linear-gradient(145deg, rgba(0, 122, 255, 0.15), rgba(0, 122, 255, 0.08)) !important;
-    transform: scale(0.95) translateY(-1px) rotate(180deg) !important;
-    box-shadow: 0 4px 12px rgba(0, 122, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    background: rgba(0, 122, 255, 0.1) !important;
+}
+
+.close-btn:hover {
+    color: #FF3B30 !important;
+    background: rgba(255, 59, 48, 0.1) !important;
+}
+
+.control-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    stroke-width: 2.5 !important;
 }
 
 /* APPLE STYLE CARD CONTAINER */
@@ -871,26 +839,20 @@
         color: #98989D !important;
     }
     
-    .fa-minimize, .fa-rotate {
-        background: linear-gradient(145deg, 
-            rgba(68, 68, 70, 0.9), 
-            rgba(58, 58, 60, 0.8)) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        color: #98989D !important;
+    .control-btn {
+        background: rgba(0, 0, 0, 0.05) !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        color: rgba(0, 0, 0, 0.6) !important;
     }
     
-    .fa-minimize:hover {
-        background: linear-gradient(145deg, 
-            rgba(255, 69, 58, 0.2), 
-            rgba(255, 69, 58, 0.1)) !important;
-        color: #FF453A !important;
+    .reset-btn:hover {
+        background: rgba(0, 122, 255, 0.15) !important;
+        color: #007AFF !important;
     }
     
-    .fa-rotate:hover {
-        background: linear-gradient(145deg, 
-            rgba(10, 132, 255, 0.2), 
-            rgba(10, 132, 255, 0.1)) !important;
-        color: #0A84FF !important;
+    .close-btn:hover {
+        background: rgba(255, 59, 48, 0.15) !important;
+        color: #FF3B30 !important;
     }
 }
   

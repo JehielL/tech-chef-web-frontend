@@ -3,11 +3,25 @@ html {
   overflow-x: hidden; /* Prevenir scroll horizontal */
 }
 
+/* ===== NAVBAR CURSOR GLOBAL FIX ===== */
+/* Forzar cursor pointer en navbar desde CSS global */
+.navbar * {
+  cursor: pointer !important;
+}
+
+.navbar a,
+.navbar button,
+.navbar [role="button"],
+.navbar [routerLink],
+.navbar [ngbDropdownToggle],
+.navbar [ngbDropdownItem] {
+  cursor: pointer !important;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  overflow-x: hidden; /* Prevenir scroll horizontal */
-  /* Fondo exactamente igual al hero */
+  overflow-x: hidden; 
   background: radial-gradient(ellipse at center, rgba(15, 15, 20, 0.98) 0%, rgba(8, 8, 12, 1) 100%);
   position: relative;
 }
@@ -15,7 +29,7 @@ body {
 /* Ajuste responsive para móvil */
 @media (max-width: 991px) {
   body {
-    padding-top: 100px; /* Menos espacio en móvil */
+    padding-top: 100px;
   }
 }
 

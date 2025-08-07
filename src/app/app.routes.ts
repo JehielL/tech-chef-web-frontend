@@ -6,6 +6,7 @@ import { BlogDesarrolloComponent } from './blog-desarrollo/blog-desarrollo.compo
 import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
 import { ComercialServicesComponent } from './comercial-services/comercial-services.component';
 import { FranchiseServicesComponent } from './franchise-services/franchise-services.component';
+import { MarketingServicesComponent } from './marketing-services/marketing-services.component';
 
 export const routes: Routes = [
 
@@ -43,7 +44,10 @@ export const routes: Routes = [
         path: 'franchise-services',
         component: FranchiseServicesComponent
     },
-    
+    {
+        path: 'comercial-services',
+        component: MarketingServicesComponent
+    },
     {
         path: '',
         component: HomeComponent,

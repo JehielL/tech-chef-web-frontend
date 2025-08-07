@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://bitesoftware.es/sitemap.xml
+Sitemap: https://bitesoftware.vercel.app/sitemap.xml
 
 # Optimización para crawlers principales
 User-agent: Googlebot

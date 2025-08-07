@@ -5,6 +5,15 @@
   box-sizing: border-box;
 }
 
+/* Prevenir desbordamiento horizontal */
+.marketing-hero,
+.hero-content,
+.hero-text {
+  max-width: 100%;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
 /* Hero Section - CARICATURESCO */
 .marketing-hero {
   position: relative;
@@ -19,6 +28,52 @@
   padding-top: 120px;
   overflow: hidden;
 }
+/* Indicador de scroll */
+.scroll-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+}
+
+.scroll-indicator:hover { opacity: 1; }
+
+.scroll-indicator .chevron {
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: chevronDown 1.8s infinite;
+}
+
+.scroll-indicator .chevron:nth-child(2) { animation-delay: 0.15s; }
+.scroll-indicator .chevron:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes chevronDown {
+  0% { opacity: 0; transform: translateY(-6px) rotate(45deg); }
+  50% { opacity: 1; transform: translateY(0) rotate(45deg); }
+  100% { opacity: 0; transform: translateY(6px) rotate(45deg); }
+}
+
+/* Hints de rendimiento en elementos animados */
+.service-card,
+.polaroid,
+.hero-graphic,
+.graphic-element,
+.btn-primary-hero,
+.btn-secondary-hero,
+.stat-card { will-change: transform, opacity; }
+
 
 .marketing-hero::before {
   content: '';
@@ -175,6 +230,8 @@
   gap: 3rem;
   margin-top: 3rem;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .stat-item {
@@ -203,10 +260,27 @@
     grid-template-columns: 1fr;
     gap: 3rem;
     text-align: center;
+    padding: 0 1rem;
+    overflow: hidden;
   }
   
   .hero-text {
     text-align: center;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.4;
+    max-width: 100%;
+    word-wrap: break-word;
   }
   
   .hero-graphic {
@@ -216,11 +290,41 @@
   
   .hero-actions {
     justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .btn-primary-hero,
+  .btn-secondary-hero {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
   }
   
   .hero-stats {
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 2rem auto 0;
+    max-width: 100%;
+  }
+  
+  .stat-item {
+    flex: 0 0 auto;
+    min-width: 80px;
+    max-width: 120px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+    word-break: keep-all;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    word-wrap: break-word;
   }
 }
 
@@ -423,9 +527,15 @@
   text-align: center;
   position: relative;
   cursor: pointer;
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, filter 0.3s ease;
   perspective: 1000px;
   height: 450px; /* Aumentado para más espacio */
+}
+
+.service-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.35);
+  filter: brightness(1.02);
 }
 
 .service-card-inner {
@@ -689,7 +799,7 @@
 
 .polaroid:hover {
   z-index: 10;
-  transform: rotate(0deg) scale(1.03) translateY(-8px);
+  transform: rotate(0deg) scale(1.035) translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
   filter: brightness(1.05);
 }
@@ -928,7 +1038,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
@@ -974,8 +1084,9 @@
 
 @media (max-width: 768px) {
   .marketing-hero {
-    padding-top: 100px;
-    min-height: 90vh;
+    padding-top: 80px;
+    min-height: 85vh;
+    padding-bottom: 2rem;
   }
   
   .hero-content {
@@ -983,7 +1094,9 @@
     gap: 2rem;
     text-align: center;
     min-height: auto;
-    padding: 2rem 0;
+    padding: 0 1rem;
+    max-width: 100%;
+    width: 100%;
   }
   
   .hero-text {
@@ -996,81 +1109,149 @@
   }
   
   .hero-graphic {
-    width: 280px;
-    height: 280px;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
   }
   
   .graphic-element {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .graphic-element.main-dish {
-    font-size: 3.5rem;
+    font-size: 3rem;
+  }
+  
+  @keyframes orbit {
+    0% { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
   }
   
   .hero-title {
-    font-size: clamp(2rem, 8vw, 3rem);
-    margin-bottom: 1.5rem;
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    margin-bottom: 1rem;
   }
   
   .hero-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
   }
   
   .hero-actions {
     justify-content: center;
     gap: 1rem;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
+    flex-direction: column;
+    align-items: center;
   }
   
   .btn-primary-hero, .btn-secondary-hero {
     padding: 0.8rem 1.5rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
   }
   
   .hero-stats {
     justify-content: center;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
   
   .stat-number {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   
+  /* Arreglo crítico para service cards en móvil */
   .services-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 0 1rem;
+    max-width: 100%;
   }
   
   .service-card {
-    height: 400px;
-    max-width: 400px;
-    margin: 0 auto;
+    height: 350px; /* Reducido para móvil */
+    max-width: 100%;
+    margin: 0;
+    /* CRÍTICO: Deshabilitar 3D en móviles */
+    perspective: none;
+  }
+  
+  .service-card-inner {
+    transform-style: flat; /* Deshabilitar 3D */
+    transition: none; /* Sin transiciones complejas */
+  }
+  
+  /* En móvil, mostrar contenido en modo "card expandible" */
+  .service-card:not(.expanded) .service-card-back {
+    display: none;
+  }
+  
+  .service-card.expanded .service-card-front {
+    display: none;
+  }
+  
+  .service-card.expanded .service-card-back {
+    display: flex;
+    transform: none;
+    position: relative;
+  }
+  .service-card-back { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  
+  /* Indicador visual para mobile */
+  .service-card-front::after {
+    content: "👆 Toca para ver más";
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .service-card.expanded .service-card-back::after {
+    content: "👆 Toca para cerrar";
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
   }
   
   .service-card-front, .service-card-back {
     padding: 1.5rem 1rem;
+    transform: none; /* Sin rotaciones en móvil */
+    backface-visibility: visible;
+    position: relative; /* Cambiar de absolute */
   }
   
   .service-card-front .service-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
   }
   
   .service-card-front h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 0.8rem;
   }
   
   .service-card-front p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   
   .service-card-back h4 {
@@ -1080,17 +1261,26 @@
   
   .service-card-back li {
     font-size: 0.8rem;
-    padding: 0.3rem 0;
+    padding: 0.25rem 0;
     padding-left: 1rem;
+    line-height: 1.3;
   }
   
   .price-tag {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Featured badge responsive */
+  .featured-badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+    top: -8px;
+    right: 15px;
   }
   
   .polaroids-wall {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.5rem;
     padding: 1rem;
   }
@@ -1099,36 +1289,59 @@
     padding: 0.8rem 0.8rem 1.5rem 0.8rem;
   }
   
-  .photo-placeholder {
-    font-size: 3rem;
+  .polaroid-title {
+    font-size: 1rem;
+  }
+  
+  .polaroid-desc {
+    font-size: 0.8rem;
+  }
+  
+  .polaroid-stats {
+    font-size: 0.75rem;
   }
   
   .floating-elements {
     display: none;
   }
+
+  .scroll-indicator { display: none; }
+
+  /* Evitar desbordes del héroe y simplificar elementos animados */
+  .hero-visual { overflow: hidden; }
+  .graphic-element:not(.main-dish) { display: none; }
+
+  /* Desactivar flip 3D en móvil y usar modo expandible controlado por TS */
+  .service-card:hover .service-card-inner { transform: none !important; }
+  .service-card-inner { transform: none !important; }
+  .service-card-front, .service-card-back { backface-visibility: visible; }
+
+  /* Separación entre tarjetas de resultados */
+  .stats-section .row { row-gap: 1rem; column-gap: 1rem; }
   
   .services-wallboard,
   .polaroid-wallboard,
   .marketing-cta,
   .stats-section {
-    padding: 60px 0;
+    padding: 50px 0;
   }
   
   .section-title,
   .wallboard-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
   
   .section-subtitle,
   .wallboard-subtitle {
-    font-size: 1rem;
-    margin-bottom: 3rem;
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
   }
   
   .stats-title {
-    font-size: 2.2rem;
-    margin-bottom: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
   }
   
   .stat-card {
@@ -1136,86 +1349,226 @@
   }
   
   .stat-emoji {
-    font-size: 3rem;
-  }
-  
-  .stat-number {
     font-size: 2.5rem;
   }
   
-  .stat-label {
-    font-size: 1rem;
-  }
-  
-  .cta-title {
+  .stat-number {
     font-size: 2.2rem;
   }
   
+  .stat-label {
+    font-size: 0.9rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
   .cta-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
+    padding: 0 1rem;
   }
   
   .btn-mega-cta {
     padding: 1rem 2rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .cta-emoji {
-    font-size: 4rem;
+    font-size: 3.5rem;
+  }
+}
+
+/* Respeto a usuarios con reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
 @media (max-width: 480px) {
+  .marketing-hero {
+    padding-top: 60px;
+    min-height: auto;
+  }
+  
   .hero-content {
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+    max-width: 98%;
   }
   
   .hero-graphic {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .graphic-element {
+    font-size: 1.5rem;
+  }
+  
+  .graphic-element.main-dish {
+    font-size: 2.5rem;
+  }
+  
+  @keyframes orbit {
+    0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
   }
   
   .hero-title {
-    font-size: clamp(1.8rem, 10vw, 2.5rem);
+    font-size: clamp(1.5rem, 8vw, 2.2rem);
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
   }
   
   .hero-actions {
-    flex-direction: column;
-    align-items: center;
+    gap: 0.8rem;
+    margin: 1rem 0;
   }
   
   .btn-primary-hero, .btn-secondary-hero {
-    width: 100%;
-    max-width: 280px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+    max-width: 260px;
   }
   
   .hero-stats {
     gap: 1rem;
+    margin-top: 1rem;
   }
   
-  .service-card {
-    height: 380px;
-    max-width: 100%;
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
   }
   
   .services-grid {
     padding: 0 0.5rem;
+    gap: 1.5rem;
+  }
+  
+  .service-card {
+    height: 320px; /* Más compacto en móvil pequeño */
+  }
+  
+  .service-card-front, .service-card-back {
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .service-card-front .service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .service-card-front h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .service-card-front p {
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+  
+  .service-card-back h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .service-card-back li {
+    font-size: 0.75rem;
+    padding: 0.2rem 0;
+    padding-left: 0.8rem;
+    line-height: 1.2;
+  }
+  
+  .price-tag {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .featured-badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    top: -6px;
+    right: 10px;
   }
   
   .section-title,
   .wallboard-title,
   .stats-title,
   .cta-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+  
+  .section-subtitle,
+  .wallboard-subtitle,
+  .cta-subtitle {
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
   }
   
   .polaroids-wall {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .polaroid {
+    padding: 0.6rem 0.6rem 1.2rem 0.6rem;
+  }
+  
+  .polaroid-title {
+    font-size: 0.9rem;
+  }
+  
+  .polaroid-desc {
+    font-size: 0.75rem;
+  }
+  
+  .polaroid-stats {
+    font-size: 0.7rem;
   }
   
   .stat-card {
     padding: 1.5rem 0.8rem;
+  }
+  
+  .stat-emoji {
+    font-size: 2rem;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  
+  .btn-mega-cta {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .cta-emoji {
+    font-size: 3rem;
+  }
+  
+  .services-wallboard,
+  .polaroid-wallboard,
+  .marketing-cta,
+  .stats-section {
+    padding: 40px 0;
   }
 }

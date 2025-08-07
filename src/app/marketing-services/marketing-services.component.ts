@@ -1,4 +1,7 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, HostListener, OnDestroy, Inject } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,20 +12,170 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   templateUrl: './marketing-services.component.html',
   styleUrl: './marketing-services.component.css'
 })
-export class MarketingServicesComponent implements OnInit, AfterViewInit {
+export class MarketingServicesComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  constructor(private elementRef: ElementRef) {}
+  private isMobile = false;
+  private cleanupCallbacks: Array<() => void> = [];
+
+  private injectedJsonLdEl?: HTMLScriptElement;
+
+  constructor(
+    private elementRef: ElementRef,
+    private title: Title,
+    private meta: Meta,
+    private router: Router,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkMobile();
+    this.setupMobileCards();
+  }
 
   ngOnInit() {
     // Registrar plugins de GSAP
     gsap.registerPlugin(ScrollTrigger);
+    this.checkMobile();
+    this.setSeoForMarketingServices();
   }
 
   ngAfterViewInit() {
     // Dar tiempo para que el DOM se renderice
     setTimeout(() => {
       this.initializeAnimations();
+      this.setupMobileCards();
+      this.enableAnchorSmoothScroll();
+      this.setupHeroParallax();
     }, 100);
+  }
+
+  ngOnDestroy(): void {
+    // Limpieza de listeners
+    this.cleanupCallbacks.forEach((fn) => {
+      try { fn(); } catch {}
+    });
+    this.cleanupCallbacks = [];
+    // Kill all ScrollTriggers creados por este componente
+    ScrollTrigger.getAll().forEach((st) => st.kill());
+  }
+
+  private setSeoForMarketingServices() {
+    const pageTitle = 'Marketing Hostelero Profesional | Servicios para Restaurantes - Bite Software';
+    const pageDesc = 'Estrategias de marketing para hostelería: redes sociales, fotografía gastronómica, campañas y branding. Aumenta tus reservas y ventas con expertos.';
+    const origin = window?.location?.origin || 'https://bitesoftware.vercel.app';
+    const canonicalUrl = `${origin}${this.router.url || '/comercial-services'}`;
+    const image = `${origin}/assets/logo-bs-removebg.png`;
+
+    this.title.setTitle(pageTitle);
+    this.meta.updateTag({ name: 'description', content: pageDesc });
+    this.meta.updateTag({ property: 'og:title', content: pageTitle });
+    this.meta.updateTag({ property: 'og:description', content: pageDesc });
+    this.meta.updateTag({ property: 'og:url', content: canonicalUrl });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: pageTitle });
+    this.meta.updateTag({ name: 'twitter:description', content: pageDesc });
+    this.meta.updateTag({ name: 'twitter:image', content: image });
+
+    // Canonical link
+    let linkEl = this.document.querySelector("link[rel='canonical']") as HTMLLinkElement | null;
+    if (!linkEl) {
+      linkEl = this.document.createElement('link');
+      linkEl.setAttribute('rel', 'canonical');
+      this.document.head.appendChild(linkEl);
+    }
+    linkEl.setAttribute('href', canonicalUrl);
+
+    // JSON-LD Service markup
+    if (this.injectedJsonLdEl) {
+      this.injectedJsonLdEl.remove();
+    }
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'Marketing para Restaurantes',
+      'provider': {
+        '@type': 'Organization',
+        'name': 'Bite Software'
+      },
+      'areaServed': 'ES',
+      'serviceType': 'Marketing hostelero',
+      'description': pageDesc,
+      'url': canonicalUrl
+    } as const;
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    this.document.head.appendChild(script);
+    this.injectedJsonLdEl = script;
+  }
+
+  private checkMobile() {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
+  private setupMobileCards() {
+    if (this.isMobile) {
+      // En móvil, convertir las cartas a sistema de click/tap
+      const serviceCards = this.elementRef.nativeElement.querySelectorAll('.service-card');
+      
+      serviceCards.forEach((card: HTMLElement) => {
+        // Remover listeners previos
+        card.removeEventListener('click', this.handleCardClick);
+        
+        // Agregar listener para click/tap en móvil
+        card.addEventListener('click', this.handleCardClick.bind(this));
+        
+        // Asegurar que empiece en estado front
+        card.classList.remove('expanded');
+        const front = card.querySelector('.service-card-front') as HTMLElement;
+        const back = card.querySelector('.service-card-back') as HTMLElement;
+        if (front && back) {
+          front.style.display = 'flex';
+          back.style.display = 'none';
+        }
+      });
+    } else {
+      // En desktop, remover listeners de click y usar hover normal
+      const serviceCards = this.elementRef.nativeElement.querySelectorAll('.service-card');
+      serviceCards.forEach((card: HTMLElement) => {
+        card.removeEventListener('click', this.handleCardClick);
+        card.classList.remove('expanded');
+        const front = card.querySelector('.service-card-front') as HTMLElement;
+        const back = card.querySelector('.service-card-back') as HTMLElement;
+        if (front && back) {
+          front.style.display = '';
+          back.style.display = '';
+        }
+      });
+    }
+  }
+
+  private handleCardClick(event: Event) {
+    if (!this.isMobile) return;
+    
+    event.preventDefault();
+    const card = event.currentTarget as HTMLElement;
+    
+    // Cerrar otras cartas abiertas
+    const allCards = this.elementRef.nativeElement.querySelectorAll('.service-card');
+    allCards.forEach((otherCard: HTMLElement) => {
+      if (otherCard !== card) {
+        otherCard.classList.remove('expanded');
+      }
+    });
+    
+    // Toggle de la carta actual
+    card.classList.toggle('expanded');
+    const front = card.querySelector('.service-card-front') as HTMLElement;
+    const back = card.querySelector('.service-card-back') as HTMLElement;
+    if (front && back) {
+      const isExpanded = card.classList.contains('expanded');
+      front.style.display = isExpanded ? 'none' : 'flex';
+      back.style.display = isExpanded ? 'flex' : 'none';
+    }
   }
 
   private initializeAnimations() {
@@ -132,6 +285,82 @@ export class MarketingServicesComponent implements OnInit, AfterViewInit {
     });
 
     console.log('Animaciones GSAP + AOS inicializadas correctamente');
+  }
+
+  private enableAnchorSmoothScroll() {
+    const anchors = this.elementRef.nativeElement.querySelectorAll('a[href^="#"]');
+    anchors.forEach((anchor: HTMLAnchorElement) => {
+      const handler = (e: Event) => {
+        const hash = anchor.getAttribute('href') || '';
+        if (!hash || hash === '#') return;
+        const target = document.querySelector(hash);
+        if (target) {
+          e.preventDefault();
+          const yOffset = -10; // pequeño offset
+          const y = (target as HTMLElement).getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      };
+      anchor.addEventListener('click', handler);
+      this.cleanupCallbacks.push(() => anchor.removeEventListener('click', handler));
+    });
+  }
+
+  private setupHeroParallax() {
+    if (this.isMobile) {
+      return;
+    }
+    const hero = this.elementRef.nativeElement.querySelector('.marketing-hero') as HTMLElement;
+    const graphic = this.elementRef.nativeElement.querySelector('.hero-graphic') as HTMLElement;
+    const text = this.elementRef.nativeElement.querySelector('.hero-text') as HTMLElement;
+
+    if (hero && graphic) {
+      // Parallax sutil con scroll
+      gsap.to(graphic, {
+        y: -40,
+        scale: 1.03,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: hero,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.6
+        }
+      });
+    }
+
+    if (text) {
+      gsap.to(text, {
+        y: -20,
+        opacity: 0.98,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: hero,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.4
+        }
+      });
+    }
+
+    // Tilt por movimiento del mouse en desktop
+    if (!this.isMobile && graphic) {
+      const onMouseMove = (ev: MouseEvent) => {
+        const rect = graphic.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (ev.clientX - cx) / rect.width;
+        const dy = (ev.clientY - cy) / rect.height;
+        gsap.to(graphic, { duration: 0.4, rotateX: dy * -8, rotateY: dx * 8, transformPerspective: 800, transformOrigin: 'center' });
+      };
+      const onMouseLeave = () => {
+        gsap.to(graphic, { duration: 0.5, rotateX: 0, rotateY: 0 });
+      };
+      hero.addEventListener('mousemove', onMouseMove);
+      hero.addEventListener('mouseleave', onMouseLeave);
+      this.cleanupCallbacks.push(() => hero.removeEventListener('mousemove', onMouseMove));
+      this.cleanupCallbacks.push(() => hero.removeEventListener('mouseleave', onMouseLeave));
+    }
   }
 
   private setupCardHover(card: HTMLElement) {
@@ -291,7 +520,7 @@ export class MarketingServicesComponent implements OnInit, AfterViewInit {
         scrollTrigger: {
           trigger: statNumber,
           start: "top 85%",
-          toggleActions: "play none none reverse"
+          toggleActions: "play none none none"
         }
       });
     });

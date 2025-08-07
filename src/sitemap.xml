@@ -7,47 +7,71 @@
     <!-- Página principal -->
     <url>
         <loc>https://bitesoftware.vercel.app/</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-08-07</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    
+
+    <!-- Home explícito -->
+    <url>
+        <loc>https://bitesoftware.vercel.app/home</loc>
+        <lastmod>2025-08-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Servicios comerciales -->
     <url>
         <loc>https://bitesoftware.vercel.app/nuestros-servicios</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-08-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
+    <!-- Marketing Services -->
+    <url>
+        <loc>https://bitesoftware.vercel.app/comercial-services</loc>
+        <lastmod>2025-08-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Franchise Services -->
+    <url>
+        <loc>https://bitesoftware.vercel.app/franchise-services</loc>
+        <lastmod>2025-08-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog listado -->
+    <url>
+        <loc>https://bitesoftware.vercel.app/blog-tech</loc>
+        <lastmod>2025-08-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
     <!-- Blog Desarrollo -->
     <url>
-        <loc>https://bitesoftware.es/blog/desarrollo</loc>
-        <lastmod>2025-01-01</lastmod>
+        <loc>https://bitesoftware.vercel.app/blog-tech/desarrollo</loc>
+        <lastmod>2025-08-07</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
-    
-    <!-- Blog Tech -->
-    <url>
-        <loc>https://bitesoftware.vercel.app/blog/tech</loc>
-        <lastmod>2025-01-01</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
+
     <!-- Blog Emprendimiento -->
     <url>
-        <loc>https://bitesoftware.vercel.app/blog/emprendimiento</loc>
-        <lastmod>2025-01-01</lastmod>
+        <loc>https://bitesoftware.vercel.app/blog-tech/emprendimiento</loc>
+        <lastmod>2025-08-07</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
-    
+
     <!-- Política de Privacidad -->
     <url>
         <loc>https://bitesoftware.vercel.app/politica-privacidad</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-08-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>

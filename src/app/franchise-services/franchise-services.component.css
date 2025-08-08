@@ -1,3 +1,162 @@
+/* HERO SECTION - SERVICIOS FRANQUICIAS */
+.franchise-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 80px; /* Espacio para el navbar */
+}
+
+
+
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.hero-title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  letter-spacing: -0.01em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.hero-subtitle p {
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item {
+  text-align: center;
+  color: white;
+  min-width: 110px;
+}
+
+.stat-number {
+  display: block;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-accent);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Estilos para texto destacado */
+.text-highlight {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(221, 218, 217, 0.5);
+}
+
+.text-emphasis {
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.welcome-text {
+  color: #fcf498;
+  font-weight: 700;
+  font-size: 1.15em;
+  text-shadow: 0 0 15px rgba(255, 140, 66, 0.6);
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .franchise-hero {
+    padding-top: 100px;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .hero-stats {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .franchise-hero {
+    padding-top: 90px;
+    min-height: 90vh;
+  }
+  
+  .hero-content {
+    padding: 2rem 1.2rem;
+    border-radius: 15px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .hero-stats {
+    gap: 1.5rem;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .stat-item {
+    min-width: 90px;
+  }
+  
+  .hero-background {
+    background-attachment: scroll;
+    animation-duration: 30s;
+  }
+}
+
+/* ESTILOS ANTERIORES DEL PARALLAX */
 .parallax {
     background-attachment: fixed;
     background-position: center;

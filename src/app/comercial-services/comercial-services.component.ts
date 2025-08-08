@@ -1,5 +1,4 @@
 import { AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import Aos from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -40,7 +39,7 @@ interface DashboardData {
 @Component({
   selector: 'app-comercial-services',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './comercial-services.component.html',
   styleUrl: './comercial-services.component.css'
 })

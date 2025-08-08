@@ -36,32 +36,36 @@
                         </div>
                         
                         <div class="metrics-grid">
-                            <div class="metric-card" 
-                                 *ngFor="let metric of dashboardData.metrics; let i = index"
-                                 [class.d-none]="i > 1"
-                                 [class.d-md-block]="i > 1">
-                                <span class="metric-label">{{ metric.label }}</span>
-                                <span class="metric-value">{{ formatMetricValue(metric) }}</span>
-                                <span [class]="getMetricTrendClass(metric)">{{ getMetricTrend(metric) }}</span>
-                            </div>
+                            @for (metric of dashboardData.metrics; track metric.label; let i = $index) {
+                                <div class="metric-card" 
+                                     [class.d-none]="i > 1"
+                                     [class.d-md-block]="i > 1">
+                                    <span class="metric-label">{{ metric.label }}</span>
+                                    <span class="metric-value">{{ formatMetricValue(metric) }}</span>
+                                    <span [class]="getMetricTrendClass(metric)">{{ getMetricTrend(metric) }}</span>
+                                </div>
+                            }
                         </div>
                         
                         <div class="chart-preview d-none d-sm-block">
                             <div class="chart-title">Ventas por Hora</div>
                             <div class="chart-bars">
-                                <div class="bar" 
-                                     *ngFor="let data of dashboardData.chartData"
-                                     [class.active]="data.isActive"
-                                     [style.height.%]="data.value">
-                                </div>
+                                @for (data of dashboardData.chartData; track data.label) {
+                                    <div class="bar" 
+                                         [class.active]="data.isActive"
+                                         [style.height.%]="data.value">
+                                    </div>
+                                }
                             </div>
                         </div>
                         
                         <div class="notifications d-none d-md-block">
-                            <div class="notification" *ngFor="let notification of dashboardData.notifications">
-                                <span class="notification-icon">{{ notification.icon }}</span>
-                                <span class="notification-text">{{ notification.text }}</span>
-                            </div>
+                            @for (notification of dashboardData.notifications; track notification.text) {
+                                <div class="notification">
+                                    <span class="notification-icon">{{ notification.icon }}</span>
+                                    <span class="notification-text">{{ notification.text }}</span>
+                                </div>
+                            }
                         </div>
                     </div>
                     

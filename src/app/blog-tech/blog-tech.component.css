@@ -146,7 +146,7 @@ app-blog-tech .hero-title {
 }
 
 app-blog-tech .gradient-text {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+  background: var(--gradient-primary) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;

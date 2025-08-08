@@ -20,24 +20,51 @@
 </div>
 } @else {
 
-<div class="p-4 text-white rounded parallax pt-5">
-    <div class="container-fluid">
-        <div class="row justify-content-center align-items-center min-vh-100">
-            <div class="col-lg-8 col-md-10 col-12 px-0">
-                <div class="text-center mt-5">
-                    <h1 class="title-era mb-4 animate__animated animate__fadeInUp">
-                        La <span class="text-gradient">Re-Evolución</span> de la hostelería, está aquí.
+<div class="comercial-hero">
+    <div class="hero-background"></div>
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6 col-md-8 col-12 ms-auto">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span>La</span>
+                        <span class="text-gradient"> Re-Evolución</span>
+                        <span> de la hostelería, está aquí</span>
                     </h1>
-                    <div class="lead-content">
-                        <p class="lead custom-text mb-4 animate__animated animate__fadeInUp animate__delay-1s">
-                            <span class="text-highlight">No pretendemos reinventar la rueda</span>, la hostelería no
-                            está rota.
+                    
+                    <div class="hero-subtitle">
+                        <p class="mb-3">
+                            <span class="text-highlight">No pretendemos reinventar la rueda</span>, la hostelería no está rota.
                             <br>Solo está <em class="text-emphasis">mal gestionada</em>.
                         </p>
-                        <p class="lead custom-text mb-4 animate__animated animate__fadeInUp animate__delay-2s">
+                        <p class="mb-4">
                             <span class="text-highlight">Pedidos, inventarios, reservas y escandallos</span> en automático.
                             <br><strong class="welcome-text">Bienvenido a la nueva cocina.</strong>
                         </p>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#servicios" class="btn-cta" aria-label="Ver nuestros servicios">
+                            🚀 Ver Servicios
+                        </a>
+                        <a href="#proceso" class="btn-secondary" aria-label="Conocer nuestro proceso">
+                            📋 Nuestro Proceso
+                        </a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Años Innovando</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Automatización</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Soporte</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,7 +113,7 @@
                 </div>
             </div>
 
-            <div class="container-fluid px-4">
+            <div class="container-fluid px-4" id="servicios">
                 <div class="row justify-content-center">
                     <h1 class="text-center text-light mb-3 ">Nuestros Servicios</h1>
                     <div class="col-xl-10 col-lg-11 col-12">
@@ -193,7 +220,7 @@
 </section>
 
 <!-- Sección de Scroll Horizontal - Complementaria -->
-<section class="horizontal-scroll-section">
+<section class="horizontal-scroll-section" id="proceso">
     <div class="scroll-container">
         <div class="horizontal-panels">
             <!-- Panel 1 - Introducción -->

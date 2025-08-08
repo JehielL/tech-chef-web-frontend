@@ -9,8 +9,7 @@
     justify-content: center;
     background-position-y: -50px; 
     max-width: 130.5vw;
-    background: rgb(2, 0, 36);
-    background: radial-gradient(circle, rgba(123, 123, 123, 0.753) 0%, rgb(31, 32, 32) 12%, rgb(0, 0, 0) 26%, rgb(34, 34, 34) 100%);
+
     font-family: "Sharp Grotesk 25", sans-serif;
     padding: 4rem 2rem;
     position: relative;

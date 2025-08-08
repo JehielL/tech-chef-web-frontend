@@ -1,76 +1,198 @@
-.parallax {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-position-y: -50px; 
-    max-width: 130.5vw;
-    background: rgb(2, 0, 36);
-    background: radial-gradient(circle, rgba(123, 123, 123, 0.753) 0%, rgb(31, 32, 32) 12%, rgb(0, 0, 0) 26%, rgb(34, 34, 34) 100%);
-    font-family: "Sharp Grotesk 25", sans-serif;
-    padding: 4rem 2rem;
-    position: relative;
+/* HERO SECTION - SERVICIOS COMERCIALES */
+.comercial-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--gradient-bg);
+  padding-top: 80px; /* Espacio para el navbar */
 }
 
-.parallax::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
-    pointer-events: none;
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(102, 0, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(182, 89, 166, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 40% 80%, rgba(0, 0, 0, 0.25) 0%, transparent 45%),
+    linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4) 100%);
+  background-attachment: fixed;
+  background-size: 120% 120%, 90% 90%, 70% 70%, cover;
+  background-position: 0% 0%, 100% 0%, 50% 100%, center;
+  animation: parallaxMove 25s ease-in-out infinite;
 }
 
-.parallax .col-md-6 {
-    position: relative;
-    z-index: 2;
-    max-width: 100%;
-    padding: 0 1rem;
+@keyframes parallaxMove {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+  33% {
+    transform: translateY(-8px) scale(1.01);
+    opacity: 0.9;
+  }
+  66% {
+    transform: translateY(-15px) scale(1.02);
+    opacity: 0.85;
+  }
 }
 
-.title-era {
-    margin-left: 10px;
-    font-family: "Sharp Grotesk 25", sans-serif;
-    font-weight: 700;
-    font-size: clamp(3rem, 8vw, 7rem);
-    line-height: 1.1;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: right;
+  padding: 3rem 2rem 2rem;
+  max-width: 650px;
+  margin-left: auto;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.custom-text {
-    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
-    line-height: 1.7;
-    margin-bottom: 1.8rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    font-weight: 300;
-    opacity: 0.92;
-    letter-spacing: 0.3px;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+.hero-title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  letter-spacing: -0.01em;
 }
 
-/* Estilos para texto destacado en parallax */
+.hero-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.hero-subtitle p {
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item {
+  text-align: center;
+  color: white;
+  min-width: 110px;
+}
+
+.stat-number {
+  display: block;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-accent);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Estilos para texto destacado */
 .text-highlight {
-    color: #ffffff;
-    font-weight: 500;
-    text-shadow: 0 0 8px rgba(221, 218, 217, 0.4);
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(221, 218, 217, 0.5);
 }
-
 
 .text-emphasis {
-    color: #ffffff;
-    font-style: italic;
-    font-weight: 400;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.welcome-text {
+  color: #fcf498;
+  font-weight: 700;
+  font-size: 1.15em;
+  text-shadow: 0 0 15px rgba(255, 140, 66, 0.6);
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .comercial-hero {
+    padding-top: 100px;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+  }
+  
+  .hero-stats {
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .comercial-hero {
+    padding-top: 90px;
+    min-height: 90vh;
+  }
+  
+  .hero-content {
+    padding: 2rem 1.2rem;
+    border-radius: 15px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .hero-stats {
+    gap: 1.5rem;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .stat-item {
+    min-width: 90px;
+  }
+  
+  .hero-background {
+    background-attachment: scroll;
+    animation-duration: 30s;
+  }
 }
 
 /* Clase para ocultar elementos visualmente pero mantenerlos accesibles para screen readers */

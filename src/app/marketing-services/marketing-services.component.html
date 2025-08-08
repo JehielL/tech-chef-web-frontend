@@ -1,4 +1,24 @@
 <!-- MARKETING SERVICES - HÉROE CARICATURESCO LIMPIO -->
+@if (activedLoader) {
+    <div class="loader-container">
+        <div class="loader">
+            <div style="--i:1" class="loader_item"></div>
+            <div style="--i:2" class="loader_item"></div>
+            <div style="--i:3" class="loader_item"></div>
+            <div style="--i:4" class="loader_item"></div>
+            <div style="--i:5" class="loader_item"></div>
+            <div style="--i:6" class="loader_item"></div>
+            <div style="--i:7" class="loader_item"></div>
+            <div style="--i:8" class="loader_item"></div>
+            <div style="--i:9" class="loader_item"></div>
+            <div style="--i:10" class="loader_item"></div>
+            <div style="--i:11" class="loader_item"></div>
+            <div style="--i:12" class="loader_item"></div>
+        </div>
+    </div>
+} @else {
+
+    
 <div class="marketing-hero">
     <div class="container">
         <div class="hero-content">
@@ -114,7 +134,7 @@
                             <li>Fotos para cartas digitales</li>
                             <li>Banco de imágenes personalizado</li>
                         </ul>
-                        <div class="price-tag">Desde 299€</div>
+                        <div class="price-tag">Desde 29€</div>
                     </div>
                 </div>
             </div>
@@ -140,7 +160,7 @@
                             <li>Campañas publicitarias dirigidas</li>
                             <li>Reportes de rendimiento</li>
                         </ul>
-                        <div class="price-tag">Desde 599€/mes</div>
+                        <div class="price-tag">Desde 59€/mes</div>
                     </div>
                 </div>
             </div>
@@ -165,15 +185,18 @@
                             <li>Análisis de productos más vendidos</li>
                             <li>Integración con sistemas de pedidos</li>
                         </ul>
-                        <div class="price-tag">Desde 199€</div>
+                        <div class="price-tag">Desde 19€</div>
                     </div>
                 </div>
             </div>
 
             <!-- BRANDING HOSTELERO -->
+             
             <div class="service-card card-branding">
+                <div class="featured-badge">🔥 Más Popular</div>
                 <div class="service-card-inner">
                     <!-- FRONT -->
+                     
                     <div class="service-card-front">
                         <div class="service-icon">🎨</div>
                         <h3>Branding Hostelero</h3>
@@ -190,7 +213,7 @@
                             <li>Diseño de packaging personalizado</li>
                             <li>Elementos decorativos coherentes</li>
                         </ul>
-                        <div class="price-tag">Desde 799€</div>
+                        <div class="price-tag">Desde 79€</div>
                     </div>
                 </div>
             </div>
@@ -215,13 +238,14 @@
                             <li>Gestión de reseñas y reputación</li>
                             <li>SEO local optimizado</li>
                         </ul>
-                        <div class="price-tag">Desde 399€/mes</div>
+                        <div class="price-tag">Desde 39€/mes</div>
                     </div>
                 </div>
             </div>
 
             <!-- CONSULTORÍA ESTRATÉGICA -->
             <div class="service-card card-consulting">
+                <div class="featured-badge">🔥 Más Popular</div>
                 <div class="service-card-inner">
                     <!-- FRONT -->
                     <div class="service-card-front">
@@ -273,7 +297,7 @@
                     <div class="polaroid-title">Oh-toro Ramen & Sushi</div>
                     <div class="polaroid-desc">+50% ventas con fotografía gastronómica</div>
                     <div class="polaroid-stats">30K seguidores</div>
-                    <div class="polaroid-stats">18 franquicias abiertas</div>
+                    <div class="polaroid-stats">18 franquicias aperturadas</div>
                 </div>
             </div>
 
@@ -287,7 +311,7 @@
                 <div class="polaroid-caption">
                     <div class="polaroid-title">Maguro Restaurant</div>
                     <div class="polaroid-desc">Branding completo + Marketing</div>
-                    <div class="polaroid-stats">1 franquicia abierta</div>
+                    <div class="polaroid-stats">1er Japanese high cuisine en Panamá</div>
                     <div class="polaroid-stats">Creación de Menú y productos</div>
 
                 </div>
@@ -303,6 +327,8 @@
                 <div class="polaroid-caption">
                     <div class="polaroid-title">Isaki Izakaya</div>
                     <div class="polaroid-desc">Gestión de redes sociales</div>
+                    <div class="polaroid-desc">Creación de Marca</div>
+
                     <div class="polaroid-stats">25K likes promedio/día</div>
                 </div>
             </div>
@@ -317,6 +343,8 @@
                     <div class="polaroid-title">Misawa Bakery</div>
                     <div class="polaroid-desc">Estrategia premium integral</div>
                     <div class="polaroid-stats">Marca líder del sector</div>
+                    <div class="polaroid-stats">5 franquicias aperturadas</div>
+
                 </div>
             </div>
 
@@ -328,7 +356,9 @@
                 </div>
                 <div class="polaroid-caption">
                     <div class="polaroid-title">King Pot</div>
-                    <div class="polaroid-desc">Campaña viral en TikTok</div>
+                    <div class="polaroid-desc">Campañas de Meta</div>
+                    <div class="polaroid-desc">Creación de contenido fotográfico</div>
+                    <div class="polaroid-stats">2 Franquicias aperturadas</div>
                     <div class="polaroid-stats">1M visualizaciones</div>
                 </div>
             </div>
@@ -430,12 +460,18 @@
                 Únete a más de 30 restaurantes que ya han transformado su negocio con nosotros.
                 Tu éxito comienza con una consultoría gratuita.
             </p>
-            <button class="btn-mega-cta">
+            <a href="contacto">
+                <button class="btn-mega-cta">
                 Solicitar Consultoría Gratuita
             </button>
+            </a>
+            
             <div class="cta-bonus">
                 <small>🎁 Análisis completo de tu situación actual sin compromiso</small>
             </div>
         </div>
     </div>
 </section>
+
+}
+

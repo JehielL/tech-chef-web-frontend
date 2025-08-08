@@ -16,7 +16,7 @@ export class MarketingServicesComponent implements OnInit, AfterViewInit, OnDest
 
   private isMobile = false;
   private cleanupCallbacks: Array<() => void> = [];
-
+  activedLoader = true;
   private injectedJsonLdEl?: HTMLScriptElement;
 
   constructor(
@@ -38,6 +38,12 @@ export class MarketingServicesComponent implements OnInit, AfterViewInit, OnDest
     gsap.registerPlugin(ScrollTrigger);
     this.checkMobile();
     this.setSeoForMarketingServices();
+      setTimeout(() => {
+          this.activedLoader = false;
+          // Refresh AOS después de cargar
+          setTimeout(() => {
+          }, 100);
+        }, 2300); 
   }
 
   ngAfterViewInit() {
@@ -47,6 +53,8 @@ export class MarketingServicesComponent implements OnInit, AfterViewInit, OnDest
       this.setupMobileCards();
       this.enableAnchorSmoothScroll();
       this.setupHeroParallax();
+      // Función de respaldo para mantener los números correctos
+      this.setupStatNumbersBackup();
     }, 100);
   }
 
@@ -487,27 +495,52 @@ export class MarketingServicesComponent implements OnInit, AfterViewInit, OnDest
       const finalNumber = statNumber.textContent || '0';
       const numericValue = parseInt(finalNumber.replace(/[^\d]/g, '')) || 0;
       
-      // Counter animation
-      gsap.from({ value: 0 }, {
+      // Guardar el valor original como atributo data
+      if (!statNumber.dataset['originalValue']) {
+        statNumber.dataset['originalValue'] = finalNumber;
+      }
+      
+      // Crear un objeto para animar
+      const counter = { value: 0 };
+      
+      // Función para formatear el número
+      const formatNumber = (value: number) => {
+        if (finalNumber.includes('%')) {
+          return value + '%';
+        } else if (finalNumber.includes('M+')) {
+          return value + 'M+';
+        } else if (finalNumber.includes('+')) {
+          return value + '+';
+        } else {
+          return value.toString();
+        }
+      };
+      
+      // Counter animation - usando gsap.to() para asegurar que termine en el valor final
+      gsap.to(counter, {
         duration: 2,
         value: numericValue,
         ease: "power2.out",
         onUpdate: function() {
-          const currentValue = Math.round((this as any)['targets']()[0].value);
-          if (finalNumber.includes('%')) {
-            statNumber.textContent = currentValue + '%';
-          } else if (finalNumber.includes('M+')) {
-            statNumber.textContent = currentValue + 'M+';
-          } else if (finalNumber.includes('+')) {
-            statNumber.textContent = currentValue + '+';
-          } else {
-            statNumber.textContent = currentValue.toString();
-          }
+          const currentValue = Math.round(counter.value);
+          statNumber.textContent = formatNumber(currentValue);
+        },
+        onComplete: function() {
+          // Asegurar que el valor final se mantenga permanentemente
+          statNumber.textContent = formatNumber(numericValue);
+          // Agregar una clase para indicar que la animación ha terminado
+          statNumber.classList.add('animation-completed');
         },
         scrollTrigger: {
           trigger: statNumber,
           start: "top 85%",
-          toggleActions: "play none none none"
+          toggleActions: "play none none none",
+          onRefresh: () => {
+            // Si ya se animó, mantener el valor final
+            if (statNumber.classList.contains('animation-completed')) {
+              statNumber.textContent = formatNumber(numericValue);
+            }
+          }
         }
       });
 
@@ -551,5 +584,36 @@ export class MarketingServicesComponent implements OnInit, AfterViewInit, OnDest
       opacity: 0,
       ease: "back.out(1.7)"
     });
+  }
+
+  // Función de respaldo para mantener los números de estadísticas correctos
+  private setupStatNumbersBackup() {
+    // Ejecutar después de que todas las animaciones se hayan configurado
+    setTimeout(() => {
+      const statNumbers = this.elementRef.nativeElement.querySelectorAll('.stat-number');
+      
+      // Definir los valores correctos según el HTML
+      const correctValues = ['26+', '300%', '100%', '26+', '10M+', '50%', '100%'];
+      
+      statNumbers.forEach((statNumber: HTMLElement, index: number) => {
+        if (index < correctValues.length) {
+          // Verificar cada 2 segundos si el número es correcto
+          const checkInterval = setInterval(() => {
+            const currentText = statNumber.textContent?.trim() || '';
+            
+            // Si el número es '0' o está vacío, restaurarlo
+            if (currentText === '0' || currentText === '' || currentText === '0+' || currentText === '0%' || currentText === '0M+') {
+              statNumber.textContent = correctValues[index];
+              console.log(`Restaurando valor de estadística ${index + 1}: ${correctValues[index]}`);
+            }
+          }, 2000);
+          
+          // Limpiar el intervalo después de 30 segundos
+          setTimeout(() => {
+            clearInterval(checkInterval);
+          }, 30000);
+        }
+      });
+    }, 3000); // Esperar 3 segundos después de que se configuren las animaciones
   }
 }

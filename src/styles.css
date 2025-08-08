@@ -1,3 +1,159 @@
+/* ===== PALETA DE COLORES UNIFICADA ===== */
+:root {
+  /* Colores Primarios Unificados */
+  --primary-blue: #0095ff;
+  --primary-purple: #b659a6;
+  --primary-pink: #f093fb;
+  --primary-coral: #ff6b6b;
+  --primary-teal: #4ecdc4;
+  
+  /* Gradientes Principales */
+  --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--primary-pink) 0%, var(--primary-coral) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-blue) 100%);
+  --gradient-hero: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f0f23 100%);
+  
+  /* Fondos Unificados */
+  --bg-dark: rgba(15, 15, 20, 0.98);
+  --bg-card: rgba(255, 255, 255, 0.12);
+  --bg-overlay: rgba(255, 255, 255, 0.1);
+  
+  /* Textos Unificados */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-accent: var(--primary-teal);
+  
+  /* Efectos */
+  --backdrop-blur: blur(10px);
+  --shadow-primary: 0 8px 25px rgba(0, 149, 255, 0.3);
+  --shadow-secondary: 0 8px 25px rgba(182, 89, 166, 0.3);
+  
+  /* Transiciones */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== BOTONES GLOBALES UNIFICADOS ===== */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border: 2px solid transparent;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+  color: var(--text-primary);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-accent);
+  border: 2px solid var(--text-accent);
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--text-accent);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.btn-hero {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.btn-cta {
+  background: var(--gradient-secondary);
+  color: var(--text-primary);
+  border: none;
+  padding: 1.25rem 3rem;
+  border-radius: 60px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  box-shadow: var(--shadow-secondary);
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(240, 147, 251, 0.4);
+  color: var(--text-primary);
+}
+
+/* ===== TÍTULOS Y TEXTOS GLOBALES ===== */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+/* ===== CARDS GLOBALES ===== */
+.card-unified {
+  background: var(--bg-card);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all var(--transition-base);
+}
+
+.card-unified:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-5px);
+}
+
 html {
   height: 100%;
   overflow-x: hidden; /* Prevenir scroll horizontal */

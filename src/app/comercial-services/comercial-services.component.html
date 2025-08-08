@@ -24,7 +24,53 @@
     <div class="hero-background"></div>
     <div class="container">
         <div class="row align-items-center min-vh-100">
-            <div class="col-lg-6 col-md-8 col-12 ms-auto">
+            <!-- Lado izquierdo - Dashboard Visual -->
+            <div class="col-lg-6 col-md-5 col-12 order-2 order-md-1">
+                <div class="hero-visual">
+                    <div class="dashboard-preview">
+                        <div class="dashboard-header">
+                            <h5>🍽️ BiteMuch Dashboard</h5>
+                            <span class="status-live" [class.live]="dashboardData.isLive">
+                                ● {{ dashboardData.isLive ? 'LIVE' : 'OFFLINE' }}
+                            </span>
+                        </div>
+                        
+                        <div class="metrics-grid">
+                            <div class="metric-card" 
+                                 *ngFor="let metric of dashboardData.metrics; let i = index"
+                                 [class.d-none]="i > 1"
+                                 [class.d-md-block]="i > 1">
+                                <span class="metric-label">{{ metric.label }}</span>
+                                <span class="metric-value">{{ formatMetricValue(metric) }}</span>
+                                <span [class]="getMetricTrendClass(metric)">{{ getMetricTrend(metric) }}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-preview d-none d-sm-block">
+                            <div class="chart-title">Ventas por Hora</div>
+                            <div class="chart-bars">
+                                <div class="bar" 
+                                     *ngFor="let data of dashboardData.chartData"
+                                     [class.active]="data.isActive"
+                                     [style.height.%]="data.value">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="notifications d-none d-md-block">
+                            <div class="notification" *ngFor="let notification of dashboardData.notifications">
+                                <span class="notification-icon">{{ notification.icon }}</span>
+                                <span class="notification-text">{{ notification.text }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                </div>
+            </div>
+            
+            <!-- Lado derecho - Contenido de texto -->
+            <div class="col-lg-6 col-md-7 col-12 order-1 order-md-2">
                 <div class="hero-content">
                     <h1 class="hero-title">
                         <span>La</span>

@@ -1,4 +1,5 @@
 import { AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import Aos from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -6,10 +7,40 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 // Registrar el plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+// Interfaces para el dashboard
+interface DashboardMetric {
+  label: string;
+  value: string | number;
+  trend?: string;
+  alert?: string;
+  type: 'currency' | 'number' | 'percentage' | 'text';
+}
+
+interface ChartData {
+  label: string;
+  value: number;
+  isActive?: boolean;
+}
+
+interface Notification {
+  icon: string;
+  text: string;
+  timestamp?: Date;
+  type: 'info' | 'warning' | 'success';
+}
+
+interface DashboardData {
+  isLive: boolean;
+  metrics: DashboardMetric[];
+  chartData: ChartData[];
+  notifications: Notification[];
+  lastUpdate: Date;
+}
+
 @Component({
   selector: 'app-comercial-services',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './comercial-services.component.html',
   styleUrl: './comercial-services.component.css'
 })
@@ -22,6 +53,60 @@ export class ComercialServicesComponent implements OnInit, AfterViewChecked, OnD
   horizontalScrollInitialized = false;
   private resizeTimeout: any;
   private horizontalScrollTrigger: any = null;
+
+  // Dashboard Data
+  dashboardData: DashboardData = {
+    isLive: true,
+    metrics: [
+      {
+        label: 'Ventas Hoy',
+        value: 2847,
+        trend: '+15%',
+        type: 'currency'
+      },
+      {
+        label: 'Pedidos',
+        value: 127,
+        trend: '+8%',
+        type: 'number'
+      },
+      {
+        label: 'Stock Crítico',
+        value: 3,
+        alert: '⚠️',
+        type: 'number'
+      },
+      {
+        label: 'Eficiencia',
+        value: 94,
+        trend: '+2%',
+        type: 'percentage'
+      }
+    ],
+    chartData: [
+      { label: '10:00', value: 40 },
+      { label: '11:00', value: 65 },
+      { label: '12:00', value: 80 },
+      { label: '13:00', value: 90 },
+      { label: '14:00', value: 95, isActive: true },
+      { label: '15:00', value: 70 }
+    ],
+    notifications: [
+      {
+        icon: '🔔',
+        text: 'Nuevo pedido - Mesa 7',
+        type: 'info',
+        timestamp: new Date()
+      },
+      {
+        icon: '📊',
+        text: 'Inventario actualizado',
+        type: 'success',
+        timestamp: new Date()
+      }
+    ],
+    lastUpdate: new Date()
+  };
 
  
   constructor() {}
@@ -223,5 +308,77 @@ export class ComercialServicesComponent implements OnInit, AfterViewChecked, OnD
     if (this.horizontalScrollTrigger) {
       this.horizontalScrollTrigger.kill();
     }
+  }
+
+  // Métodos para el Dashboard
+  formatMetricValue(metric: DashboardMetric): string {
+    switch (metric.type) {
+      case 'currency':
+        return `€${metric.value.toLocaleString()}`;
+      case 'percentage':
+        return `${metric.value}%`;
+      case 'number':
+        return metric.value.toString();
+      default:
+        return metric.value.toString();
+    }
+  }
+
+  getMetricTrend(metric: DashboardMetric): string {
+    return metric.trend || metric.alert || '';
+  }
+
+  getMetricTrendClass(metric: DashboardMetric): string {
+    if (metric.alert) return 'metric-alert';
+    if (metric.trend?.startsWith('+')) return 'metric-trend trend-up';
+    if (metric.trend?.startsWith('-')) return 'metric-trend trend-down';
+    return 'metric-trend';
+  }
+
+  // Simular actualizaciones en tiempo real (para cuando integres APIs reales)
+  simulateRealTimeUpdates(): void {
+    setInterval(() => {
+      // Actualizar métricas aleatorias
+      const randomMetric = Math.floor(Math.random() * this.dashboardData.metrics.length);
+      const metric = this.dashboardData.metrics[randomMetric];
+      
+      if (metric.type === 'currency') {
+        const currentValue = Number(metric.value);
+        const change = Math.floor(Math.random() * 200) - 100; // -100 a +100
+        metric.value = Math.max(0, currentValue + change);
+      } else if (metric.type === 'number' && metric.label !== 'Stock Crítico') {
+        const currentValue = Number(metric.value);
+        const change = Math.floor(Math.random() * 10) - 5; // -5 a +5
+        metric.value = Math.max(0, currentValue + change);
+      }
+
+      // Actualizar gráfico
+      this.dashboardData.chartData = this.dashboardData.chartData.map((item, index) => ({
+        ...item,
+        value: Math.max(20, Math.min(100, item.value + (Math.random() * 10 - 5))),
+        isActive: index === 4 // Mantener el quinto elemento como activo
+      }));
+
+      // Actualizar timestamp
+      this.dashboardData.lastUpdate = new Date();
+    }, 5000); // Actualizar cada 5 segundos
+  }
+
+  // Método para conectar con API real (placeholder)
+  async loadRealDashboardData(): Promise<void> {
+    try {
+      // TODO: Reemplazar con llamada a API real
+      // const response = await this.dashboardService.getDashboardData();
+      // this.dashboardData = response;
+      
+      console.log('Conectar aquí con API real para obtener datos del dashboard');
+    } catch (error) {
+      console.error('Error cargando datos del dashboard:', error);
+    }
+  }
+
+  // Método para refrescar datos
+  refreshDashboard(): void {
+    this.loadRealDashboardData();
   }
 }

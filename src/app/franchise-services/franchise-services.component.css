@@ -613,8 +613,8 @@
     background: linear-gradient(135deg, rgba(252, 244, 152, 0.1) 0%, rgba(40, 40, 40, 0.9) 40%, rgba(25, 25, 25, 0.95) 100%);
 }
 
-.panel-implementation {
-    background: linear-gradient(135deg, rgba(252, 244, 152, 0.15) 0%, rgba(35, 35, 35, 0.9) 35%, rgba(15, 15, 15, 0.95) 100%);
+.panel-implementation::before {
+    background: linear-gradient(135deg, rgba(252, 244, 152, 0.15) 0%, rgba(35, 35, 35, 0.8) 35%, rgba(15, 15, 15, 0.9) 100%);
 }
 
 .panel-optimization {

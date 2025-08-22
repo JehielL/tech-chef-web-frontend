@@ -2,11 +2,12 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import { DropdownHoverSimpleDirective } from '../shared';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgbDropdownModule, RouterLink, CommonModule],
+  imports: [NgbDropdownModule, RouterLink, CommonModule, DropdownHoverSimpleDirective],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

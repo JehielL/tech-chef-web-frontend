@@ -27,7 +27,7 @@
   /* Efectos */
   --backdrop-blur: blur(10px);
   --shadow-primary: 0 8px 25px rgba(0, 149, 255, 0.3);
-  --shadow-secondary: 0 8px 25px rgba(182, 89, 166, 0.3);
+  --shadow-secondary: 0 8px 25px rgba(89, 171, 182, 0.3);
   
   /* Transiciones */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -92,7 +92,6 @@
 }
 
 .btn-cta {
-  background: var(--gradient-secondary);
   color: var(--text-primary);
   border: none;
   padding: 1.25rem 3rem;

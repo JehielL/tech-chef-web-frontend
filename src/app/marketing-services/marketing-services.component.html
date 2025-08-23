@@ -35,10 +35,10 @@
                 </p>
 
                 <div class="hero-actions">
-                    <a href="#cta" class="btn-primary-hero" aria-label="Solicitar consultoría gratuita">
+                    <a (click)="scrollToElement('cta')" class="btn-primary-hero" aria-label="Solicitar consultoría gratuita" style="cursor: pointer;">
                         🚀 Consultoría Gratuita
                     </a>
-                    <a href="#casos-exito" class="btn-secondary-hero" aria-label="Ver casos de éxito">
+                    <a (click)="scrollToElement('casos-exito')" class="btn-secondary-hero" aria-label="Ver casos de éxito" style="cursor: pointer;">
                         📱 Ver Casos de Éxito
                     </a>
                 </div>
@@ -90,7 +90,7 @@
     </div>
 
     <!-- Indicador de scroll -->
-    <a href="#servicios" class="scroll-indicator" aria-label="Bajar a servicios">
+    <a (click)="scrollToElement('servicios')" class="scroll-indicator" aria-label="Bajar a servicios" style="cursor: pointer;">
         <span class="chevron"></span>
         <span class="chevron"></span>
         <span class="chevron"></span>

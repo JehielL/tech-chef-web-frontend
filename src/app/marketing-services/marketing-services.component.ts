@@ -314,6 +314,15 @@ export class MarketingServicesComponent implements OnInit, AfterViewInit, OnDest
     });
   }
 
+  scrollToElement(elementId: string) {
+    const target = document.getElementById(elementId);
+    if (target) {
+      const yOffset = -80; // offset para navbar
+      const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
+
   private setupHeroParallax() {
     if (this.isMobile) {
       return;

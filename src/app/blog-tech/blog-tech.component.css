@@ -163,7 +163,7 @@ app-blog-tech .highlight-text::after {
   bottom: -0.1em;
   left: 0;
   right: 0;
-  height: 0.3em;
+  height: 0.1em;
   background: rgba(240, 147, 251, 0.3);
   border-radius: var(--radius-sm);
 }
@@ -215,7 +215,6 @@ app-blog-tech .hero-visual {
   grid-template-columns: 1fr 1fr !important;
   grid-template-rows: 1fr 1fr !important;
   gap: var(--space-lg) !important;
-  height: 400px !important;
   padding: var(--space-lg) !important;
 }
 
@@ -350,11 +349,11 @@ app-blog-tech .featured-post-secondary {
   border-radius: var(--radius-xl) !important;
   overflow: hidden !important;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
-  transition: all var(--transition-medium) !important;
   cursor: pointer !important;
   height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
+  /* transition eliminada - interfiere con AOS */
 }
 
 app-blog-tech .featured-post-main:hover,
@@ -489,12 +488,13 @@ app-blog-tech .category-card {
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: var(--radius-xl) !important;
   overflow: hidden !important;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   position: relative !important;
   height: 320px !important;
   display: flex !important;
   flex-direction: column !important;
 }
+
+
 
 app-blog-tech .category-card:hover {
   transform: translateY(-12px) scale(1.02) !important;
@@ -1863,42 +1863,7 @@ app-blog-tech .categories-grid {
   margin-top: var(--space-2xl) !important;
 }
 
-app-blog-tech .category-card {
-  background: rgba(20, 20, 20, 0.95) !important;
-  border-radius: var(--radius-xl) !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-  transition: all var(--transition-medium) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  height: 400px !important;
-  position: relative !important;
-}
-
-app-blog-tech .category-card:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
-}
-
-app-blog-tech .category-image {
-  width: 100% !important;
-  height: 200px !important;
-  object-fit: cover !important;
-  transition: transform var(--transition-slow) !important;
-}
-
-app-blog-tech .category-card:hover .category-image {
-  transform: scale(1.05) !important;
-}
-
-app-blog-tech .category-content {
-  padding: var(--space-lg) !important;
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  background: linear-gradient(transparent, rgba(0,0,0,0.8)) !important;
-  color: white !important;
-}
+/* Definiciones duplicadas eliminadas - interfieren con AOS */
 
 app-blog-tech .category-content h3 {
   font-size: 1.5rem !important;

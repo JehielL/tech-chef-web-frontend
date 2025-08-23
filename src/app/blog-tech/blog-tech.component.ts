@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import AOS from 'aos';
 
 @Component({
@@ -9,27 +9,31 @@ import AOS from 'aos';
   styleUrl: './blog-tech.component.css',
   encapsulation: ViewEncapsulation.None
 })
-export class BlogTechComponent implements OnInit {
+export class BlogTechComponent implements OnInit, AfterViewInit {
 
   activedLoader = true;
   
   ngOnInit(): void {
-    // Inicializar AOS
+    // Inicializar AOS con configuración simple para debugging
     AOS.init({
       duration: 800,
-      easing: 'ease-out-cubic',
+      easing: 'ease',
       once: true,
-      offset: 100
+      offset: 120
     });
 
     setTimeout(() => {
       this.activedLoader = false;
-      // Refresh AOS después de cargar
-      setTimeout(() => {
-        AOS.refresh();
-      }, 100);
     }, 2300); 
     
     window.scrollTo(0, 0); 
+  }
+
+  ngAfterViewInit(): void {
+    // Refresh AOS después de que todo esté renderizado
+    setTimeout(() => {
+      AOS.refresh();
+      console.log('AOS refreshed - cards should animate now');
+    }, 400);
   }
 }

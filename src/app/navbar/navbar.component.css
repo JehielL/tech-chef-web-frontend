@@ -282,7 +282,6 @@ nav.navbar [routerLink] {
 
 /* Dropdowns SIMPLIFICADOS */
 .dropdown-menu {
-    background: rgba(255, 255, 255, 0.98);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -731,23 +730,27 @@ nav.navbar [routerLink] {
   
   /* DELAYS ESCALONADOS PARA ITEMS */
   .dropdown-menu.show .dropdown-item:nth-child(1) {
-    animation-delay: 0.05s;
+    animation-delay: 0.10s;
   }
   
   .dropdown-menu.show .dropdown-item:nth-child(2) {
-    animation-delay: 0.1s;
-  }
-  
-  .dropdown-menu.show .dropdown-item:nth-child(3) {
     animation-delay: 0.15s;
   }
   
+  .dropdown-menu.show .dropdown-item:nth-child(3) {
+    animation-delay: 0.20s;
+  }
+  
   .dropdown-menu.show .dropdown-item:nth-child(4) {
-    animation-delay: 0.2s;
+    animation-delay: 0.25s;
   }
   
   .dropdown-menu.show .dropdown-item:nth-child(5) {
-    animation-delay: 0.25s;
+    animation-delay: 0.30s;
+  }
+  
+  .dropdown-menu.show .dropdown-item:nth-child(7) {
+    animation-delay: 0.35s;
   }
   
   /* HOVER STATES DE LOS ITEMS */
